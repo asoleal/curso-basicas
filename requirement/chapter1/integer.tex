@@ -1,0 +1,203 @@
+\documentclass[12pt, letterpaper]{article}
+
+% Paquetes esenciales (coherentes con tu libro)
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, es-nodecimaldot]{babel}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{xlop}
+\usepackage{tikz}
+\usepackage{cancel}
+\usepackage{xcolor}
+
+% Configuración de página
+\geometry{left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm}
+
+% Definición de entornos para soluciones
+\newenvironment{solucion}
+    {\begin{proof}[Solución]}
+    {\end{proof}}
+
+\title{Solucionario Detallado: Sistemas Numéricos y Teoría de Números}
+\author{Matemáticas Básicas}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Nivel I: Mecánico y Procedimental}
+
+\subsection*{1. Cálculo de $\mathcal{MCD}$ y $\mathcal{MCM}$}
+
+\textbf{Ejercicio 1.a)} $a = 450, \quad b = 360$
+
+\begin{solucion}
+    \textbf{Paso 1: Descomposición en factores primos.}
+    \begin{center}
+    \begin{tabular}{c|c} 
+        450 & 2 \\ 225 & 3 \\ 75 & 3 \\ 25 & 5 \\ 5 & 5 \\ 1 & 
+    \end{tabular} \quad $\Rightarrow 450 = 2^1 \cdot 3^2 \cdot 5^2$
+    \hspace{1cm}
+    \begin{tabular}{c|c} 
+        360 & 2 \\ 180 & 2 \\ 90 & 2 \\ 45 & 3 \\ 15 & 3 \\ 5 & 5 \\ 1 & 
+    \end{tabular} \quad $\Rightarrow 360 = 2^3 \cdot 3^2 \cdot 5^1$
+    \end{center}
+
+    \textbf{Paso 2: Cálculo del $\mathcal{MCD}$ (factores comunes con menor exponente).}
+    \[ \mathcal{MCD}(450, 360) = 2^1 \cdot 3^2 \cdot 5^1 = 2 \cdot 9 \cdot 5 = \mathbf{90} \]
+
+    \textbf{Paso 3: Cálculo del $\mathcal{MCM}$ (comunes y no comunes con mayor exponente).}
+    \[ \mathcal{MCM}(450, 360) = 2^3 \cdot 3^2 \cdot 5^2 = 8 \cdot 9 \cdot 25 = \mathbf{1800} \]
+\end{solucion}
+
+\textbf{Ejercicio 1.b)} $a = 792, \quad b = 900$
+
+\begin{solucion}
+    $792 = 2^3 \cdot 3^2 \cdot 11^1$ \\
+    $900 = 2^2 \cdot 3^2 \cdot 5^2$
+    
+    \[ \mathcal{MCD} = 2^2 \cdot 3^2 = 4 \cdot 9 = \mathbf{36} \]
+    \[ \mathcal{MCM} = 2^3 \cdot 3^2 \cdot 5^2 \cdot 11^1 = 8 \cdot 9 \cdot 25 \cdot 11 = \mathbf{19800} \]
+\end{solucion}
+
+\subsection*{2. Algoritmo de Euclides e Identidad de Bézout}
+
+\textbf{Ejercicio 2.a)} $a = 123, \quad b = 277$ (Hallar $\mathcal{MCD}$ y expresar combinación lineal).
+
+\begin{solucion}
+    Aplicamos el algoritmo de Euclides dividiendo el mayor por el menor:
+    \begin{align}
+        277 &= 123(2) + 31 \label{eq:euc1} \\
+        123 &= 31(3) + 30 \label{eq:euc2} \\
+        31 &= 30(1) + 1 \label{eq:euc3} \\
+        30 &= 1(30) + 0 \nonumber
+    \end{align}
+    El último residuo no nulo es $1$, por lo tanto $\mathcal{MCD}(123, 277) = \mathbf{1}$.
+
+    \textbf{Reversa (Bézout):} Despejamos el residuo en cada paso.
+    De (\ref{eq:euc3}): $1 = 31 - 30(1)$
+    
+    Sustituimos $30$ usando (\ref{eq:euc2}): $30 = 123 - 31(3)$
+    \[ 1 = 31 - [123 - 31(3)] = 31(1) - 123 + 31(3) = 31(4) - 123 \]
+    
+    Sustituimos $31$ usando (\ref{eq:euc1}): $31 = 277 - 123(2)$
+    \[ 1 = [277 - 123(2)](4) - 123 = 277(4) - 123(8) - 123(1) = 277(4) - 123(9) \]
+    
+    \textbf{Resultado:} $1 = 277(4) + 123(-9)$.
+\end{solucion}
+
+\section*{Nivel II: Análisis y Aplicaciones}
+
+\subsection*{5. Problema de Baldosas}
+Habitación de $420 \times 480$ cm.
+
+\begin{solucion}
+    Se busca el tamaño máximo cuadrado que divida exactamente a ambas dimensiones. Esto corresponde al $\mathcal{MCD}(420, 480)$.
+    
+    Descomposición rápida:
+    $420 = 10 \cdot 42 = 2 \cdot 5 \cdot 2 \cdot 3 \cdot 7 = 2^2 \cdot 3 \cdot 5 \cdot 7$
+    $480 = 10 \cdot 48 = 2 \cdot 5 \cdot 16 \cdot 3 = 2^5 \cdot 3 \cdot 5$
+    
+    \textbf{a) Tamaño de la baldosa:}
+    $\mathcal{MCD} = 2^2 \cdot 3 \cdot 5 = 4 \cdot 3 \cdot 5 = \mathbf{60 \text{ cm}}$.
+    
+    \textbf{b) Cantidad de baldosas:}
+    \[ \text{Largo: } \frac{420}{60} = 7 \text{ baldosas}, \quad \text{Ancho: } \frac{480}{60} = 8 \text{ baldosas} \]
+    \[ \text{Total} = 7 \times 8 = \mathbf{56 \text{ baldosas}}. \]
+\end{solucion}
+
+\subsection*{6. Ecuación Diofántica (Granjero)}
+Ecuación: $100x + 17y = 1800$, con $x, y \in \mathbb{Z}_{\ge 0}$.
+
+\begin{solucion}
+    Primero verificamos si tiene solución. $\mathcal{MCD}(100, 17) = 1$ (17 es primo y no divide a 100). Como $1 | 1800$, hay solución.
+    
+    Usamos congruencias (o despeje simple) para reducir el problema. Trabajamos módulo 17:
+    \[ 100x + 17y \equiv 1800 \pmod{17} \]
+    Como $17y \equiv 0 \pmod{17}$:
+    \[ 100x \equiv 1800 \pmod{17} \]
+    Reducimos coeficientes:
+    $100 = 17(5) + 15 \Rightarrow 100 \equiv 15 \equiv -2 \pmod{17}$.
+    $1800 = 17(105) + 15 \Rightarrow 1800 \equiv 15 \equiv -2 \pmod{17}$.
+    
+    La ecuación queda:
+    \[ -2x \equiv -2 \pmod{17} \implies x \equiv 1 \pmod{17} \]
+    
+    Por lo tanto, $x$ tiene la forma $x = 17k + 1$.
+    Como $x$ representa número de vacas, $x \ge 0$.
+    Probemos $k=0 \Rightarrow x=1$.
+    Sustituimos en la original: $100(1) + 17y = 1800 \Rightarrow 17y = 1700 \Rightarrow y = 100$.
+    
+    Si probamos $k=1 \Rightarrow x=18$.
+    $100(18) + 17y = 1800 \Rightarrow 1800 + 17y = 1800 \Rightarrow y = 0$.
+    
+    \textbf{Soluciones posibles:}
+    1. 1 vaca y 100 ovejas.
+    2. 18 vacas y 0 ovejas.
+\end{solucion}
+
+\section*{Nivel III: Teórico y Demostraciones}
+
+\subsection*{7. Propiedad $\mathcal{MCD}(ka, kb) = k \cdot \mathcal{MCD}(a, b)$}
+
+\begin{solucion}
+    Sea $d = \mathcal{MCD}(a, b)$ y $D = \mathcal{MCD}(ka, kb)$.
+    
+    1. Por definición de $\mathcal{MCD}$, podemos escribir $a = d \cdot x$ y $b = d \cdot y$, donde $\mathcal{MCD}(x, y) = 1$.
+    
+    2. Multiplicamos por $k$:
+    $ka = k(dx) = (kd)x$
+    $kb = k(dy) = (kd)y$
+    
+    3. Observamos que $kd$ es un divisor común de $ka$ y $kb$.
+    Por lo tanto, $\mathcal{MCD}(ka, kb) = (kd) \cdot \mathcal{MCD}(x, y)$.
+    
+    4. Como $\mathcal{MCD}(x, y) = 1$, entonces:
+    \[ \mathcal{MCD}(ka, kb) = kd \cdot 1 = k \cdot d = k \cdot \mathcal{MCD}(a, b) \]
+\end{solucion}
+
+\subsection*{10. El Algoritmo de la División ($n^2-1$ divisible por 8)}
+Demostrar que si $n$ es impar, $8 | (n^2 - 1)$.
+
+\begin{solucion}
+    Si $n$ es impar, podemos escribirlo como $n = 2k + 1$ para algún $k \in \mathbb{Z}$.
+    Sustituimos en la expresión:
+    \[ n^2 - 1 = (2k+1)^2 - 1 = (4k^2 + 4k + 1) - 1 = 4k^2 + 4k \]
+    Factorizamos $4k$:
+    \[ n^2 - 1 = 4k(k+1) \]
+    
+    Analicemos el término $k(k+1)$. Es el producto de dos enteros consecutivos.
+    En cualquier par de enteros consecutivos, uno de ellos debe ser par.
+    Por lo tanto, $k(k+1)$ es divisible por 2, es decir, $k(k+1) = 2m$ para algún entero $m$.
+    
+    Sustituyendo esto atrás:
+    \[ n^2 - 1 = 4(2m) = 8m \]
+    
+    Esto demuestra que $n^2 - 1$ es un múltiplo de 8. $\qed$
+\end{solucion}
+
+\section*{Nivel IV: Retos}
+
+\subsection*{12. Sucesión de Fibonacci y $\mathcal{MCD}$}
+Calcule $\mathcal{MCD}(F_{n}, F_{n+1})$.
+
+\begin{solucion}
+    Usamos el algoritmo de Euclides.
+    Sabemos que $F_{n+1} = F_n \cdot 1 + F_{n-1}$ (por definición de la sucesión).
+    
+    Por la propiedad del algoritmo de Euclides: $\mathcal{MCD}(a, b) = \mathcal{MCD}(b, r)$ donde $a = bq + r$.
+    
+    Aplicando esto a Fibonacci:
+    \[ \mathcal{MCD}(F_{n+1}, F_n) = \mathcal{MCD}(F_n, F_{n-1}) \]
+    
+    Podemos repetir este proceso iterativamente (descenso infinito):
+    \[ \mathcal{MCD}(F_n, F_{n-1}) = \mathcal{MCD}(F_{n-1}, F_{n-2}) = \dots = \mathcal{MCD}(F_2, F_1) \]
+    
+    Sabemos que $F_1 = 1$ y $F_2 = 1$.
+    \[ \mathcal{MCD}(1, 1) = 1 \]
+    
+    \textbf{Conclusión:} Dos números consecutivos de Fibonacci son siempre primos relativos ($\mathcal{MCD} = 1$).
+\end{solucion}
+
+\end{document}

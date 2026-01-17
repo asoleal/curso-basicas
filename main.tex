@@ -1,0 +1,42 @@
+\documentclass[12pt, letterpaper]{book}
+\usepackage[utf8]{inputenc}
+% La opción es-nodecimaldot arregla el conflicto con TikZ
+\usepackage[spanish, es-nodecimaldot]{babel} 
+
+\usepackage{amsmath, amssymb, amsthm} 
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{babel}
+\usepackage{cancel} % Lo necesitas para los ejemplos de tachado
+\usepackage{xlop}   % Lo necesitas para las operaciones aritméticas
+
+% ============================================================
+% DEFINICIONES DE ENTORNOS (UNA SOLA VEZ, ANTES DE HYPERREF)
+% ============================================================
+\theoremstyle{definition}
+\newtheorem{ejemplo}{Ejemplo}[chapter]
+\newtheorem{definicion}{Definición}[chapter]
+\newtheorem{teorema}{Teorema}[chapter]
+% ============================================================
+
+\newtheorem{propiedad}{Propiedad}[section]
+\geometry{left=2.5cm, right=2.5cm, top=3cm, bottom=3cm}
+
+% hyperref siempre al FINAL del preámbulo
+\usepackage{hyperref}
+
+\title{Matemáticas Básicas}
+\author{John Jairo Leal Gómez}
+
+\begin{document}
+
+\maketitle
+
+\chapter{Sistemas Numéricos} % Nivel 0
+
+% Al incluir este archivo, asegúrate de que ADENTRO empiece con \section
+\input{tex/01_Sistemas_Numericos/1.1_numeros.tex}
+
+\end{document}
