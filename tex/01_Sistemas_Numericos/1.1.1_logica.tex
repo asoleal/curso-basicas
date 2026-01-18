@@ -1,0 +1,337 @@
+En principio se estudian las proposiciones, que constituyen la base de la lógica matemática. Enunciado declarativo que tiene la propiedad de ser verdadero o falso, pero no ambos.
+
+\subsection{Proposiciones Simples}
+
+Las proposiciones simples son expresiones o afirmaciones de las cuales se puede decir si son verdaderas (v) o falsas (f). Se notarán con las letras $p$, $q$, $r$, etc.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{c}
+\cline{1-1}
+\multicolumn{1}{|l|}{$p$}   \\ \cline{1-1}
+\multicolumn{1}{|l|}{v} \\ \cline{1-1}
+\multicolumn{1}{|l|}{f}  \\ \cline{1-1}
+\end{tabular}
+\end{table}
+
+\noindent \textbf{Ejemplo:}
+\begin{enumerate}
+    \item $p$: El número 2 es primo (v)
+    \item $q$: El número 3 es par (f)
+    \item $r$: Bogotá es la capital de Colombia (v)
+\end{enumerate}
+
+Algunas afirmaciones de uso cotidiano no son proposiciones; así por ejemplo:
+\begin{itemize}
+    \item ``Buenas noches''
+    \item ``$x$ es azul''
+    \item ``Que esté muy bien''
+\end{itemize}
+A pesar de que estas expresiones tienen sentido completo, en verdad carece de sentido decir si son verdaderas o falsas.
+
+\subsection{Negación de una proposición}
+
+Dada una proposición $p$, se puede escribir su negación como $\lnot p$ o $\sim p$ y se lee como ``no $p$'' o ``negación de $p$''. Así, por ejemplo, si la proposición $p$ es ``Cali es la capital del Valle del Cauca'', su negación $\lnot p$ será ``Cali no es la capital del Valle del Cauca''.
+
+Es claro entonces que si la proposición $p$ es verdadera, su negación $\lnot p$ es falsa, y si la proposición $p$ es falsa, su negación $\lnot p$ es verdadera. Esto se resume en la Tabla \ref{tabla:nop}.
+
+\begin{table}[ht]
+\caption{Proposición $\sim p$}\label{tabla:nop}
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+$p$ & $ \sim p$ & $\sim (\sim p )\equiv p$\\ \hline
+v & f  & v\\ \hline
+f & v  & f\\ \hline
+\end{tabular}
+\end{table}
+
+Se puede ver en un ejemplo simple: ``No es cierto que no voy a ir'', es negación de la negación y por tanto afirmativo; quiere decir que sí voy a ir.
+
+\subsection{Proposiciones Compuestas}
+
+Son aquellas proposiciones que están formadas por dos o más proposiciones simples, anidadas por conectores lógicos, las cuales se exponen a continuación.
+
+\begin{table}[ht]
+\caption{Resumen de los principales conectores lógicos}\label{tabla_conector}
+\centering
+\begin{tabular}{|c|c|c|c|}
+\hline
+Conector        & Símbolo        & Ejemplo         & Nombre    \\ \hline
+``Entonces'' & $\Rightarrow$     & $p \Rightarrow q$ & Implicación  \\ \hline
+``Si y solo si''  & $\Leftrightarrow$ & $p \Leftrightarrow q$ & Doble Implicación \\ \hline
+``y''            & $\land$           & $p \land q$    & Y (Conjunción)    \\ \hline
+``o''             & $\lor$            & $p \lor q$ & O (Disyunción)         \\ \hline
+``o exclusiva'' & $\veebar$ & $p\veebar q$ & O exclusiva \\ \hline
+\end{tabular}
+\end{table}
+
+Si se tiene una proposición, entonces se obtienen dos posibilidades, $v$ o $f$, esto es $2^1$. Si hay dos proposiciones, hay cuatro posibilidades, es decir $2^2=4$, a saber:
+
+\begin{table}[ht]
+\caption{Dos proposiciones, $2^2=4$ posibilidades}\label{tabla:dosalados}
+\centering
+\begin{tabular}{|c|c|}
+\hline
+$p$ & $q$  \\ \hline
+\textbf{v}   & \textbf{v}   \\ \hline
+v   & f   \\ \hline
+f   & v   \\ \hline
+f   & f   \\ \hline
+\end{tabular}
+\end{table}
+
+Con tres proposiciones hay ocho posibilidades:
+
+\begin{table}[ht]
+\caption{Tres proposiciones, $2^n=2^3=8$ posibilidades}\label{tabla:dosalatres}
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+$p$ & $q$ & $r$ \\ \hline
+v   & v   & v \\ \hline
+v   & v   & f \\ \hline
+v   & f   & v \\ \hline
+v   & f   & f \\ \hline
+f   & v   & v \\ \hline
+f   & v   & f \\ \hline
+f   & f   & v \\ \hline
+f   & f   & f \\ \hline
+\end{tabular}
+\end{table}
+
+Cuando se tiene una proposición, esta tiene dos valores de verdad; así habrán $2^1=2$ posibles combinaciones. Cuando se tienen $2$ proposiciones, hay $2^2=4$ posibilidades. Si $n=3$, el número de combinaciones es $2^3=8$. En general, se puede afirmar que si se tienen $n$ proposiciones, la cantidad de posibilidades para sus valores de verdad es $2^n$.
+
+\noindent \textbf{Ejemplos de proposiciones compuestas:}
+\begin{itemize}
+    \item ``Gabriel García Márquez fue un gran escritor \textbf{y} bailarín.''
+    \item ``Llevaré a mi novia flores \textbf{o} le llevaré dulces.''
+    \item ``Si tengo hambre, \textbf{pues} cocino.''
+    \item ``Se producirá un cambio sustancial en nuestro país \textbf{si y solamente si} las clases media y baja comienzan a actuar masivamente en defensa de sus intereses.''
+\end{itemize}
+
+A continuación, describiremos cada uno de los conectores mostrados en la Tabla \ref{tabla_conector}.
+
+\subsection{Conjunción (``y'')}
+
+Uno de los conectores de proposiciones compuestas es la conjunción, denotada por ``$\land$''. Por ejemplo, al escribir: ``Gabriel García Márquez fue un gran escritor y bailarín'', se puede tomar ``Gabriel García Márquez fue un gran escritor'' como $p$ y ``Gabriel García Márquez fue un gran bailarín'' como $q$.
+
+Para que esta proposición compuesta sea verdadera, tanto $p$ como $q$ tienen que ser verdaderas; de lo contrario, dicha proposición sería falsa. Esto se resume en la Tabla \ref{tabla:conjuncion}.
+
+\begin{table}[ht]
+\caption{Conjunción, ``y'', ``$\land$''}\label{tabla:conjuncion}
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+$p$ & $q$ & $p$ $\land$ $q$ \\ \hline
+\textbf{v}   & \textbf{v}   & \textbf{v}               \\ \hline
+v   & f   & f               \\ \hline
+f   & v   & f               \\ \hline
+f   & f   & f               \\ \hline
+\end{tabular}
+\end{table}
+
+Si representamos el valor de verdad $v$ como $1$ y $f$ como $0$, la tabla queda:
+
+\begin{table}[ht]
+\caption{Conjunción Binaria}\label{tabla:conjuncion_bin}
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+$p$ & $q$ & $p$ $\land$ $q$ \\ \hline
+\textbf{1}   & \textbf{1}   & \textbf{1}              \\ \hline
+1   & 0   & 0               \\ \hline
+0   & 1   & 0               \\ \hline
+0   & 0   & 0               \\ \hline
+\end{tabular}
+\end{table}
+Esto tiene un comportamiento similar a un producto matemático. En electrónica, corresponde a una compuerta AND.
+
+\subsection{Disyunción (``o'')}
+
+El conector simbolizado por ``$\lor$'' depende de los valores individuales de las proposiciones simples. Por ejemplo: ``Le llevaré a mi novia flores o dulces''. Si $p$ es ``Llevaré flores'' y $q$ es ``Llevaré dulces'', para que la compuesta sea verdadera basta con que cualquiera de las dos ($p$ o $q$) sea verdadera. La disyunción solo es falsa si ambas proposiciones simples lo son.
+
+\begin{table}[ht]
+\caption{Disyunción, ``o'', ``$\lor$''}\label{tabla:disyuncion}
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+$p$ & $q$ & $p$ $\lor$ $q$ \\ \hline
+v   & v   & v              \\ \hline
+v   & f   & v              \\ \hline
+f   & v   & v              \\ \hline
+\textbf{f}   & \textbf{f}   & \textbf{f}              \\ \hline
+\end{tabular}
+\end{table}
+
+Con unos y ceros se obtiene:
+
+\begin{table}[ht]
+\caption{Disyunción Binaria}\label{tabla:disyuncion_bin}
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+$p$ & $q$ & $p$ $\lor$ $q$ \\ \hline
+1   & 1   & 1               \\ \hline
+1   & 0   & 1               \\ \hline
+0   & 1   & 1               \\ \hline
+\textbf{0}   & \textbf{0}   & \textbf{0}               \\ \hline
+\end{tabular}
+\end{table}
+Su comportamiento es similar a una suma (lógica). En electrónica se denomina compuerta OR.
+
+\subsection{Implicación (``Entonces'')}
+
+Dadas dos proposiciones $p$ y $q$, la implicación $p\Rightarrow q$ establece que partiendo de un antecedente o hipótesis $p$, se cumple un consecuente o tesis $q$.
+
+La implicación es falsa \textbf{únicamente} cuando el antecedente es verdadero y el consecuente es falso. En los demás casos, es verdadera. Si parto de un principio verdadero y llego a una conclusión verdadera, la implicación es verdadera; pero si el antecedente es verdadero, no se puede concluir algo falso válidamente.
+
+\begin{table}[ht]
+\caption{Implicación, ``entonces'', ``$\Rightarrow$''}\label{tabla:implicacion}
+\centering
+\begin{tabular}{|c|c|c|}
+\cline{1-3}
+$p$ & $q$ & $p\Rightarrow q$    \\ \cline{1-3}
+v  &  v & v   \\ \cline{1-3}
+\textbf{v}  &  \textbf{f} & \textbf{f}  \\ \cline{1-3}
+f  &  v & v   \\ \cline{1-3}
+f  &  f & v \\ \cline{1-3}
+\end{tabular}
+\end{table}
+
+\subsection{Bicondicional (``Si y sólo si'')}
+
+La proposición $p \iff q$ será verdadera cuando ambas proposiciones tengan valores de verdad iguales, y falsa cuando sean diferentes.
+
+\begin{table}[ht]
+\caption{Bicondicional, ``Si y sólo si'', ``$\iff$''}\label{tabla:bicondicional}
+\centering
+\begin{tabular}{|c|c|c|}
+\cline{1-3}
+$p$ & $q$ & $p\iff q$    \\ \cline{1-3}
+\textbf{v}  &  \textbf{v} & \textbf{v}   \\ \cline{1-3}
+v  &  f & f  \\ \cline{1-3}
+f  &  v & f   \\ \cline{1-3}
+\textbf{f}  &  \textbf{f} & \textbf{v} \\ \cline{1-3}
+\end{tabular}
+\end{table}
+\subsection{Disyunción Exclusiva (``O exclusiva'')}
+
+A diferencia de la disyunción ordinaria (inclusiva), que permite que ambas proposiciones sean verdaderas, la \textbf{disyunción exclusiva} exige que \textbf{exactamente una} de las proposiciones sea verdadera para que la afirmación completa sea cierta. Se denota comúnmente por $\veebar$ (o $\oplus$ en ingeniería).
+
+Esta operación es falsa cuando los valores de verdad son iguales (ambos verdaderos o ambos falsos). En el lenguaje natural, suele enfatizarse con la estructura ``O bien... o bien...''.
+
+\noindent \textbf{Ejemplo:}
+``O el actual ganador es de izquierda o es de derecha''.
+(Se asume que no puede pertenecer a ambos bandos políticos simultáneamente en este contexto).
+
+Su tabla de verdad es la siguiente:
+
+\begin{table}[ht]
+\caption{Disyunción Exclusiva, $\veebar$}\label{tabla:xor}
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+$p$ & $q$ & $p \veebar q$ \\ \hline
+v   & v   & \textbf{f}    \\ \hline
+v   & f   & v             \\ \hline
+f   & v   & v             \\ \hline
+f   & f   & f             \\ \hline
+\end{tabular}
+\end{table}
+
+En términos binarios, si $1+1=0$ (suma sin acarreo), esta operación se comporta idénticamente. En el ámbito de la electrónica digital y la computación, esta operación es fundamental y se conoce como compuerta \textbf{XOR} (Exclusive OR).
+
+\subsection{Fórmulas Bien Formadas (f.b.f)}
+
+Hasta ahora se han visto proposiciones con un solo conector. Sin embargo, muchas proposiciones poseen dos o más, como por ejemplo: $(p \land q) \Rightarrow r$. Para estructurar estas expresiones correctamente, definimos las Reglas de Formación:
+
+\begin{enumerate}
+    \item Los símbolos proposicionales ($p, q, r...$) son f.b.f.
+    \item Si $p$ es una f.b.f, entonces su negación $\lnot p$ también es una f.b.f.
+    \item Si $p$ y $q$ son f.b.f, entonces $(p \land q)$, $(p \lor q)$, $(p \Rightarrow q)$ y $(p \iff q)$ son f.b.f.
+    \item Una expresión es una f.b.f si y solo si resulta de aplicar las reglas anteriores.
+\end{enumerate}
+
+\subsection{Jerarquía de Operadores}
+
+Para evaluar correctamente una proposición compuesta que carece de signos de agrupación (paréntesis), es necesario seguir un orden de precedencia estricto. Esto evita ambigüedades, de la misma forma que la multiplicación tiene prioridad sobre la suma en aritmética. El orden es el siguiente:
+
+\begin{table}[ht]
+\caption{Precedencia de Operadores Lógicos}\label{tabla:jerarquia}
+\centering
+\begin{tabular}{|c|l|c|}
+\hline
+\textbf{Prioridad} & \textbf{Conector} & \textbf{Símbolo} \\ \hline
+1 (Máxima) & Negación & $\lnot, \sim$ \\ \hline
+2 & Conjunción y Disyunción & $\land, \lor$ \\ \hline
+3 & Implicación & $\Rightarrow$ \\ \hline
+4 (Mínima) & Bicondicional & $\iff$ \\ \hline
+\end{tabular}
+\end{table}
+
+\noindent \textbf{Reglas de interpretación:}
+\begin{itemize}
+    \item La negación siempre afecta únicamente a la proposición inmediata a su derecha, a menos que haya un paréntesis. Por ejemplo, $\lnot p \land q$ se lee como $(\lnot p) \land q$, y \textbf{no} como $\lnot (p \land q)$.
+    \item Los conectores $\land$ y $\lor$ dominan sobre $\Rightarrow$. Por ejemplo, $p \land q \Rightarrow r$ se entiende como $(p \land q) \Rightarrow r$.
+\end{itemize}
+
+Podemos construir tablas de verdad para cualquier f.b.f evaluando paso a paso.
+
+\vspace{0.5cm}
+\noindent \textbf{Ejemplo:} Construya la tabla de verdad de la fórmula $(p \land q)\Rightarrow p$.
+
+\begin{table}[ht]
+\caption{Evaluación de $(p \land q) \Rightarrow p$}\label{tabla:ejemplo1}
+\centering
+\begin{tabular}{|c|c|c|c|}
+\hline
+$p$ & $q$ & $ p \land q $ & $(p \land q) \Rightarrow p$ \\ \hline
+v & v & v & v \\ \hline
+v & f & f & v \\ \hline
+f & v & f & v \\ \hline
+f & f & f & v \\ \hline
+\end{tabular}
+\end{table}
+
+Como se muestra en la Tabla \ref{tabla:ejemplo1}, la proposición es siempre verdadera; esto se llama \textbf{Tautología}. Si todos los valores fueran falsos, sería una \textbf{Contradicción}.
+
+A continuación, un ejemplo de equivalencia lógica (Implicación vs. Disyunción):
+
+\begin{table}[ht]
+\caption{Equivalencia $(p\Rightarrow q)\iff (\lnot p\lor q)$}\label{tab:morgan1}
+\centering
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+$p$ & $q$ & $p\Rightarrow q$ & $\lnot p$ & $\lnot p \lor q$ & Equivalencia \\ \hline
+v & v & \fbox{v} & f & \fbox{v} & v \\ \hline
+v & f & \fbox{f} & f & \fbox{f} & v \\ \hline
+f & v & \fbox{v} & v & \fbox{v} & v \\ \hline
+f & f & \fbox{v} & v & \fbox{v} & v \\ \hline
+\end{tabular}
+\end{table}
+
+\subsection{Ejercicios}
+
+\begin{enumerate}
+    \item Determine si las siguientes f.b.f son tautologías utilizando tablas de verdad:
+    \begin{enumerate}
+        \item $(p\lor q)\Leftrightarrow p$
+        \item $(p\land q)\Leftrightarrow p$
+        \item $(p\lor q)\lor r \Leftrightarrow p\lor (q \lor r)$
+        \item $p\land (q\lor r)\Leftrightarrow (p\land q)\lor (p \land r)$
+        \item $\lnot (\lnot p)\Leftrightarrow p$
+        \item $(p \Rightarrow q)\Leftrightarrow(\lnot q\Rightarrow \lnot p)$
+        \item $p \Rightarrow (q\Rightarrow p)$
+    \end{enumerate}
+
+    \item Dadas las proposiciones $p$: ``Hace frío'' (V) y $q$: ``Es de noche'' (F), escriba simbólicamente y halle el valor de verdad de:
+    \begin{itemize}
+        \item No es de noche o no hace frío.
+        \item Hace frío o no es de noche.
+        \item Ni es de noche ni hace frío.
+        \item Es de noche pero no hace frío.
+    \end{itemize}
+
+    \item Halle la negación de cada una de las proposiciones anteriores, dando la respuesta en términos simbólicos y en español.
+\end{enumerate}

@@ -10,6 +10,8 @@
 \usepackage{tikz}
 \usetikzlibrary{babel}
 \usetikzlibrary{decorations.pathreplacing}
+\usepackage{venndiagram}
+\usepackage{tabularx}
 
 \usepackage{cancel} % Lo necesitas para los ejemplos de tachado
 \usepackage{xlop}   % Lo necesitas para las operaciones aritméticas
@@ -17,6 +19,11 @@
 % ============================================================
 % DEFINICIONES DE ENTORNOS (UNA SOLA VEZ, ANTES DE HYPERREF)
 % ============================================================
+\addto\captionsspanish{
+  \renewcommand{\tablename}{Tabla}
+  \renewcommand{\listtablename}{Índice de tablas}
+}
+
 \theoremstyle{definition}
 \newtheorem{ejemplo}{Ejemplo}[chapter]
 \newtheorem{definicion}{Definición}[chapter]
@@ -76,9 +83,14 @@
 
 \maketitle
 
-\chapter{Sistemas Numéricos} % Nivel 0
 
 % Al incluir este archivo, asegúrate de que ADENTRO empiece con \section
+\chapter{Lógica y Conjuntos}
+
+\input{tex/01_Sistemas_Numericos/1.0_logica.tex}
+
+\chapter{Sistemas Numéricos} % Nivel 0
+
 \input{tex/01_Sistemas_Numericos/1.1_numeros.tex}
 
 \end{document}

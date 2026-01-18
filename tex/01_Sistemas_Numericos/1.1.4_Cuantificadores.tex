@@ -1,0 +1,139 @@
+En la lógica matemática, no siempre es eficiente construir tablas de verdad gigantescas para validar un argumento. En su lugar, utilizamos \textbf{Reglas de Inferencia}, que son esquemas lógicos válidos (tautologías) que nos permiten deducir nuevas conclusiones verdaderas a partir de premisas verdaderas.
+
+La notación estándar para un argumento es listar las premisas y separarlas de la conclusión por una línea horizontal o el símbolo $\therefore$ (por lo tanto).
+
+\subsection{Principales Reglas de Inferencia}
+
+A continuación se presentan las reglas fundamentales aceptadas internacionalmente para la construcción de argumentos:
+
+% En el preámbulo: \usepackage{tabularx}
+
+\begin{table}[h]
+\centering
+\small % Reduce un poco la fuente para que quepa mejor
+% El ancho total es el del texto (\textwidth).
+% La última columna es X para que se ajuste automáticamente.
+\begin{tabularx}{\textwidth}{|l|c|c|X|}
+\hline
+\textbf{Nombre} & \textbf{Simbología} & \textbf{Tautología Asociada} & \textbf{Descripción} \\ \hline
+Modus Ponens & $\begin{array}{c} p \to q \\ p \\ \hline \therefore q \end{array}$ & $((p \to q) \wedge p) \to q$ & Si $p$ implica $q$, y ocurre $p$, entonces necesariamente ocurre $q$. \\ \hline
+Modus Tollens & $\begin{array}{c} p \to q \\ \neg q \\ \hline \therefore \neg p \end{array}$ & $((p \to q) \wedge \neg q) \to \neg p$ & Si $p$ implica $q$, y no ocurrió $q$, entonces no pudo haber ocurrido $p$. \\ \hline
+Silogismo Hipotético & $\begin{array}{c} p \to q \\ q \to r \\ \hline \therefore p \to r \end{array}$ & $((p \to q) \wedge (q \to r)) \to (p \to r)$ & Propiedad transitiva de la implicación. \\ \hline
+Silogismo Disyuntivo & $\begin{array}{c} p \vee q \\ \neg p \\ \hline \therefore q \end{array}$ & $((p \vee q) \wedge \neg p) \to q$ & Si tenemos dos opciones y descartamos una, debemos quedarnos con la otra. \\ \hline
+Simplificación & $\begin{array}{c} p \wedge q \\ \hline \therefore p \end{array}$ & $(p \wedge q) \to p$ & Si suceden dos cosas a la vez, podemos afirmar cualquiera de ellas. \\ \hline
+\end{tabularx}
+\caption{Reglas de Inferencia Básicas}
+\label{tab:reglas}
+\end{table}
+
+\textbf{Ejemplo de Aplicación:}
+\begin{itemize}
+    \item Premisa 1: Si estudio, aprobaré el examen ($p \to q$).
+    \item Premisa 2: No aprobé el examen ($\neg q$).
+    \item Conclusión: Por \textbf{Modus Tollens}, puedo deducir que no estudié ($\therefore \neg p$).
+\end{itemize}
+
+\section{Negación de Cuantificadores}
+
+Una de las habilidades más importantes en matemáticas avanzadas es saber negar una proposición general. No basta con decir ``es falso que...'', se debe encontrar la forma lógica equivalente.
+
+\subsection{Leyes de De Morgan para Cuantificadores}
+
+\begin{enumerate}
+    \item \textbf{Negación del Universal ($\forall$):}
+    Para negar que ``todos'' cumplen una propiedad, basta con demostrar que ``existe al menos uno'' que \textbf{no} la cumple.
+    \[ \neg (\forall x \in A, P(x)) \equiv \exists x \in A, \neg P(x) \]
+
+    \item \textbf{Negación del Existencial ($\exists$):}
+    Para negar que ``existe alguno'' que cumpla una propiedad, debemos demostrar que ``todos'' fallan en cumplirla (o que para todos, la propiedad es falsa).
+    \[ \neg (\exists x \in A, P(x)) \equiv \forall x \in A, \neg P(x) \]
+\end{enumerate}
+
+\textbf{Ejemplo Práctico:}
+\begin{itemize}
+    \item \textit{Proposición:} ``Todos los números primos son impares''.
+    \[ \forall n \in \mathbb{P}, \text{Impar}(n) \]
+    \item \textit{Negación:} ``Existe al menos un número primo que \textbf{no} es impar''.
+    \[ \exists n \in \mathbb{P}, \neg \text{Impar}(n) \]
+    \textit{(Nota: Esta negación es verdadera, pues el 2 es primo y es par).}
+\end{itemize}
+
+\section{Introducción a la Demostración}
+
+Una demostración matemática es una sucesión coherente de pasos lógicos que valida la verdad de una proposición. Para realizar demostraciones, utilizaremos las siguientes definiciones formales sobre los números enteros ($\mathbb{Z}$).
+
+\subsection{Definiciones Preliminares}
+
+Para todo entero $n, a, b \in \mathbb{Z}$:
+
+\begin{definicion}[Número Par]
+$n$ es par $\iff \exists k \in \mathbb{Z}$ tal que $n = 2k$.
+\end{definicion}
+
+\begin{definicion}[Número Impar]
+$n$ es impar $\iff \exists k \in \mathbb{Z}$ tal que $n = 2k + 1$.
+\end{definicion}
+
+\begin{definicion}[Divisibilidad]
+$a$ divide a $b$ (se escribe $a \mid b$) $\iff \exists k \in \mathbb{Z}$ tal que $b = a \cdot k$.
+\end{definicion}
+
+\subsection{Teoremas Básicos para Practicar}
+
+A continuación se listan teoremas cuya demostración es un ejercicio estándar, utilizando las definiciones anteriores y las reglas de inferencia.
+
+\begin{teorema}[Suma de Pares]
+La suma de dos números enteros pares es siempre un número par.
+\end{teorema}
+\textit{Hipótesis:} $a$ y $b$ son pares. \textit{Tesis:} $a + b$ es par.
+
+\subsubsection{Ejemplo de Demostración Modelo}
+
+Antes de intentar los ejercicios propuestos, analicemos detalladamente cómo se estructura una demostración formal utilizando el \textit{Método Directo}.
+
+\begin{teorema}[Clausura de la suma de pares]
+La suma de dos números enteros pares es siempre un número par.
+\end{teorema}
+
+\begin{proof}[Demostración]
+Nuestro objetivo es probar que si tomamos dos números que cumplen la propiedad de ser pares, su suma conservará esta misma propiedad.
+
+\textbf{Paso 1: Hipótesis (Identificar los datos)} \\
+Sean $a$ y $b$ dos números enteros pares cualesquiera.
+
+\textbf{Paso 2: Aplicar Definiciones} \\
+Por la Definición 1.1 (Número Par), la condición de ser par garantiza la existencia de enteros multiplicadores.
+\begin{itemize}
+    \item Como $a$ es par, existe un entero $k \in \mathbb{Z}$ tal que $a = 2k$.
+    \item Como $b$ es par, existe un entero $m \in \mathbb{Z}$ tal que $b = 2m$.
+\end{itemize}
+
+\textbf{Paso 3: Operatoria Algebraica} \\
+Sumamos ambas cantidades para analizar la forma del resultado:
+\[ a + b = 2k + 2m \]
+Aplicando la propiedad distributiva (factor común) de los números enteros:
+\[ a + b = 2(k + m) \]
+
+\textbf{Paso 4: Argumento de Cierre (Lógica)} \\
+Sabemos que la suma de dos enteros es otro entero (clausura de $\mathbb{Z}$). Por lo tanto, $(k + m)$ es un número entero; llamémoslo $z$ (donde $z = k + m$, $z \in \mathbb{Z}$).
+Sustituyendo, obtenemos:
+\[ a + b = 2z \]
+
+\textbf{Conclusión:} \\
+Hemos llegado a la forma $2 \cdot (\text{entero})$, que corresponde exactamente a la Definición 1.1. Por lo tanto, $a + b$ es un número par.
+\end{proof}
+
+
+\begin{teorema}[Producto de Par e Impar]
+El producto de un entero par por cualquier entero (par o impar) es siempre par.
+\end{teorema}
+
+\begin{teorema}[Cuadrado de un Impar]
+Si $n$ es un número impar, entonces $n^2$ es impar.
+\end{teorema}
+\textit{Sugerencia:} Use la definición $n = 2k+1$ y desarrolle el binomio al cuadrado.
+
+\begin{teorema}[Transitividad de la Divisibilidad]
+Si $a \mid b$ y $b \mid c$, entonces $a \mid c$.
+\end{teorema}
+

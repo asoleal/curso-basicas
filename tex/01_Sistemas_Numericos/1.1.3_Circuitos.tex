@@ -1,0 +1,74 @@
+En esta sección se verá la conexión entre la lógica proposicional, los conjuntos y los circuitos.
+
+Para este tema utilizaremos el concepto de \textbf{circuitos lógicos}. Un circuito lógico es un sistema de operaciones que satisfacen las reglas de la lógica y representan el funcionamiento de un sistema físico real. En este contexto, se maneja la información en forma binaria, es decir, con ``1'' y ``0'', los cuales representan dos niveles de voltaje: nivel alto y nivel bajo, respectivamente.
+
+La aplicación de la lógica proposicional a los circuitos se debe al \textbf{isomorfismo} que existe entre ambos; esto quiere decir que hay una igualdad de estructura matemática entre estos dos sistemas.
+
+\subsection{Proposición simple e interruptor}
+
+Veamos la primera relación. Como vimos al comienzo de este capítulo, una proposición simple puede ser verdadera (v) o falsa (f). En circuitos, podemos decir que un interruptor está \textbf{cerrado} (permite el paso de corriente, equivalente a 1) o \textbf{abierto} (interrumpe el paso, equivalente a 0). De esta manera podemos ver la siguiente relación:
+
+\begin{table}[ht]
+\caption{Relación Lógica - Circuito}\label{tabla:relacion_circuito}
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Lógica} & \textbf{Valor} & \textbf{Estado del Interruptor} \\ \hline
+Verdadero ($v$) & 1 & Cerrado (Pasa corriente) \\ \hline
+Falso ($f$) & 0 & Abierto (No pasa corriente) \\ \hline
+\end{tabular}
+\end{table}
+
+En este caso, nuestra proposición $p$ es el interruptor. Si la proposición es verdadera, el interruptor estará cerrado (1); mientras que si la proposición es falsa, nuestro interruptor estará abierto (0).
+
+\subsection{Conjunción y circuitos en serie}
+
+Con esta idea clara, se puede proceder a realizar el análisis con proposiciones compuestas. Suponga que se tienen dos proposiciones conectadas de la misma forma que en la conjunción ``y''. Esto equivale a un \textit{circuito en serie}.
+
+Suponga entonces que $p$ representa un interruptor y $q$ representa otro interruptor colocado seguidamente. Para que la energía circule y llegue a su destino, se requiere que **ambos** interruptores estén cerrados.
+\begin{itemize}
+    \item Si uno está abierto y el otro cerrado, la energía no fluirá.
+    \item Si ambos están abiertos, evidentemente tampoco habrá flujo de energía.
+\end{itemize}
+
+\begin{table}[ht]
+\caption{Conjunción (``y'', $\land$) aplicada a un circuito en serie}\label{tabla:conjuncion_circuitos}
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+$p$ (Interruptor 1) & $q$ (Interruptor 2) & Flujo ($p \land q$) \\ \hline
+\textbf{v = 1} (Cerrado) & \textbf{v = 1} (Cerrado) & \textbf{v = 1} (Pasa corriente) \\ \hline
+v = 1 (Cerrado) & f = 0 (Abierto) & f = 0 (No pasa) \\ \hline
+f = 0 (Abierto) & v = 1 (Cerrado) & f = 0 (No pasa) \\ \hline
+f = 0 (Abierto) & f = 0 (Abierto) & f = 0 (No pasa) \\ \hline
+\end{tabular}
+\end{table}
+
+\subsection{Disyunción y circuitos en paralelo}
+
+Al igual que en la conjunción, $p$ y $q$ representan interruptores, pero esta vez hablamos de un \textit{circuito en paralelo}.
+
+En esta configuración, la corriente tiene dos caminos posibles. Si ambos están cerrados, la energía circula. En caso de que uno de los dos esté abierto pero el otro cerrado, la energía también tiene por dónde circular. La única forma de que la energía \textbf{no} llegue a su destino es que ambos interruptores estén abiertos simultáneamente.
+
+\begin{table}[ht]
+\caption{Disyunción (``o'', $\lor$) aplicada a un circuito en paralelo}\label{tabla:disyuncion_circuitos}
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+$p$ (Camino 1) & $q$ (Camino 2) & Flujo ($p \lor q$) \\ \hline
+v = 1 & v = 1 & v = 1 (Pasa) \\ \hline
+v = 1 & f = 0 & v = 1 (Pasa) \\ \hline
+f = 0 & v = 1 & v = 1 (Pasa) \\ \hline
+\textbf{f = 0} & \textbf{f = 0} & \textbf{f = 0} (No pasa) \\ \hline
+\end{tabular}
+\end{table}
+
+\subsection{Negación}
+
+La negación ($\lnot p$) en circuitos lógicos corresponde a un inversor o a un interruptor ``normalmente cerrado''. Esto significa que su funcionamiento es inverso al habitual:
+\begin{itemize}
+    \item Si la proposición es verdadera ($1$, señal activa), el interruptor se abre ($0$), cortando el paso de corriente.
+    \item Si la proposición es falsa ($0$, sin señal), el interruptor permanece cerrado ($1$), permitiendo el paso de corriente.
+\end{itemize}
+
+Esta operación es la base de la compuerta lógica NOT.
