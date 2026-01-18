@@ -529,66 +529,6 @@ Así por ejemplo el conjunto $\{\dots -1.2,\ -0.8,\ -0.3333,\ 0,\ 0.5,\ 1.4,\ \d
         \end{equation*}
     \end{enumerate}
 %===============================================================
-\item \textbf{Multiplicación de Fraccionarios:} 
-    Conceptualmente, multiplicar fracciones significa calcular una parte de otra parte. La palabra clave es ``\textbf{de}''. Por ejemplo, $\frac{1}{2} \cdot \frac{3}{4}$ significa obtener ``un medio \textbf{de} tres cuartos''.
-    
-    A diferencia de la suma, el algoritmo es directo o lineal: se multiplica numerador con numerador y denominador con denominador.
-    \begin{equation}
-    \boxed{\frac{a}{b} \cdot \frac{c}{d} = \frac{a \cdot c}{b \cdot d}}
-    \end{equation}
-
-    \textbf{Interpretación Gráfica (Modelo de Área):}
-    Para visualizar $\frac{2}{3} \cdot \frac{4}{5}$, imaginemos una unidad cuadrada.
-    \begin{enumerate}
-        \item Dividimos verticalmente en 5 partes y sombreamos 4 (representando $\frac{4}{5}$).
-        \item Dividimos horizontalmente esa misma unidad en 3 partes y sombreamos 2 (representando $\frac{2}{3}$).
-        \item El resultado es la región donde se cruzan ambos colores (la doble sombra).
-    \end{enumerate}
-
-    \begin{figure}[ht]
-    \centering
-    \caption{Multiplicación Gráfica: $\frac{2}{3}$ de $\frac{4}{5}$}\label{fig:multfrac}
-    \begin{tikzpicture}[scale=0.8]
-        % 1. DIBUJAR 4/5 (Columnas verticales)
-        % Fondo blanco
-        \draw[thick] (0,0) rectangle (5,3);
-        
-        % Rellenar 4 de 5 columnas en azul suave
-        \fill[cyan!30] (0,0) rectangle (4,3);
-        
-        % Líneas verticales
-        \foreach \x in {1,2,3,4} \draw[cyan!80, dashed] (\x,0) -- (\x,3);
-        \node[above, cyan!80!black] at (2.5, 3) {$\frac{4}{5}$ (Vertical)};
-
-        % 2. DIBUJAR 2/3 (Filas horizontales)
-        % Rellenar 2 de 3 filas con un patrón o color transparente
-        \fill[red!30, opacity=0.5] (0,0) rectangle (5,2);
-        
-        % Líneas horizontales
-        \foreach \y in {1,2} \draw[red!80, dashed] (0,\y) -- (5,\y);
-        \node[right, red!80!black] at (5, 1) {$\frac{2}{3}$ (Horiz.)};
-
-        % 3. EL CRUCE (Resultado)
-        % Volvemos a dibujar el borde del área de intersección para resaltarla
-        \draw[thick, black] (0,0) rectangle (4,2);
-        % Patrón de rayas para el resultado
-        \foreach \k in {0.2, 0.4, ..., 3.8} \draw[black, opacity=0.3] (\k,0) -- (\k,2);
-        
-        % Etiqueta del resultado
-        \node[white, fill=black!70, rounded corners] at (2,1) {\textbf{Resultado}};
-        
-        % Explicación matemática al lado
-        \node[right, align=left] at (8, 1.5) {
-            Total de cuadros: $3 \times 5 = 15$\\
-            Cuadros en el cruce: $2 \times 4 = 8$\\
-            \\
-            $\displaystyle \frac{2}{3} \cdot \frac{4}{5} = \frac{8}{15}$
-        };
-    \end{tikzpicture}
-    \end{figure}
-
-    \textbf{Ejemplo Numérico:} Multiplicar $\frac{3}{4}$ por $\frac{5}{7}$:
-    \[ \frac{3}{4} \cdot \frac{5}{7} = \frac{3 \cdot 5}{4 \cdot 7} = \frac{15}{28} \]
 
 %===============================================================
     
@@ -907,77 +847,66 @@ Así por ejemplo el conjunto $\{\dots -1.2,\ -0.8,\ -0.3333,\ 0,\ 0.5,\ 1.4,\ \d
     \end{enumerate}
 
 \item \textbf{Multiplicación de Fraccionarios:} 
-    Conceptualmente, multiplicar fracciones significa calcular una parte de otra parte. La palabra clave es ``\textbf{de}''.
+    Conceptualmente, multiplicar fracciones significa calcular una parte de otra parte. La palabra clave es ``\textbf{de}''. Por ejemplo, $\frac{1}{2} \cdot \frac{3}{4}$ significa obtener ``un medio \textbf{de} tres cuartos''.
     
-    El algoritmo es directo: numerador por numerador y denominador por denominador.
+    A diferencia de la suma, el algoritmo es directo o lineal: se multiplica numerador con numerador y denominador con denominador.
     \begin{equation}
     \boxed{\frac{a}{b} \cdot \frac{c}{d} = \frac{a \cdot c}{b \cdot d}}
     \end{equation}
-    \textbf{Ejemplo Numérico:} Multiplicar $\frac{2}{3}$ por $\frac{4}{5}$:
-    \[ \frac{2}{3} \cdot \frac{4}{5} = \frac{2 \cdot 4}{3 \cdot 5} = \frac{8}{15} \]
 
-    \textbf{Explicación Gráfica (Paso a paso):} 
-    Vamos a visualizar la operación $\frac{2}{3} \cdot \frac{4}{5}$ (que se lee: ``dos tercios \textbf{de} cuatro quintos'') ver figura \ref{fig:multpasos}.
-    
-       \begin{figure}[ht]
+    \textbf{Interpretación Gráfica (Modelo de Área):}
+    Para visualizar $\frac{2}{3} \cdot \frac{4}{5}$, imaginemos una unidad cuadrada.
+    \begin{enumerate}
+        \item Dividimos verticalmente en 5 partes y sombreamos 4 (representando $\frac{4}{5}$).
+        \item Dividimos horizontalmente esa misma unidad en 3 partes y sombreamos 2 (representando $\frac{2}{3}$).
+        \item El resultado es la región donde se cruzan ambos colores (la doble sombra).
+    \end{enumerate}
+
+    \begin{figure}[ht]
     \centering
-    \caption{Proceso gráfico de multiplicación con rejilla}\label{fig:multpasos}
+    \caption{Multiplicación Gráfica: $\frac{2}{3}$ de $\frac{4}{5}$}\label{fig:multfrac}
     \begin{tikzpicture}[scale=0.8]
-        % --- PASO 1: Representar 4/5 ---
-        \node[align=center] at (2.5, 3.8) {\textbf{Paso 1}\\Representamos $\frac{4}{5}$};
-        % Relleno Azul
-        \fill[cyan!30] (0,0) rectangle (4,3);
-        % Borde Unidad
+        % 1. DIBUJAR 4/5 (Columnas verticales)
+        % Fondo blanco
         \draw[thick] (0,0) rectangle (5,3);
-        % Divisiones Verticales (Quintos) - Sólidas
-        \foreach \x in {1,2,3,4} \draw[thick] (\x,0) -- (\x,3);
         
-        % Flecha de transición
-        \draw[->, ultra thick, gray] (5.5, 1.5) -- (7.5, 1.5);
+        % Rellenar 4 de 5 columnas en azul suave
+        \fill[cyan!30] (0,0) rectangle (4,3);
+        
+        % Líneas verticales
+        \foreach \x in {1,2,3,4} \draw[cyan!80, dashed] (\x,0) -- (\x,3);
+        \node[above, cyan!80!black] at (2.5, 3) {$\frac{4}{5}$ (Vertical)};
 
-        % --- PASO 2: Cruzar con 2/3 y ver la rejilla ---
-        \begin{scope}[shift={(8,0)}]
-            \node[align=center] at (2.5, 3.8) {\textbf{Paso 2}\\Tomamos $\frac{2}{3}$ de lo anterior};
-            
-            % 1. Relleno Final (Intersección) - Más oscuro para destacar
-            \fill[red!60] (0,0) rectangle (4,2);
-            
-            % 2. Borde Unidad
-            \draw[thick] (0,0) rectangle (5,3);
-            
-            % 3. LA REJILLA COMPLETA (Líneas punteadas para visualizar el total)
-            % Verticales (Quintos)
-            \foreach \x in {1,2,3,4} \draw[densely dashed, black!70] (\x,0) -- (\x,3);
-            % Horizontales (Tercios)
-            \foreach \y in {1,2} \draw[densely dashed, black!70] (0,\y) -- (5,\y);
-            
-            % Etiquetas explicativas
-            \draw[decorate, decoration={brace, amplitude=5pt}, thick] (-0.2, 0) -- (-0.2, 2) 
-                node[midway, left=5pt] {$\frac{2}{3}$};
-                
-            \node[white, font=\bfseries] at (2,1) {8 partes};
-            \node[black!60, font=\footnotesize] at (4.5, 2.5) {Sobran};
-            
-            % Conteo visual abajo
-            \node[below, align=center] at (2.5, -0.2) {
-                Total cuadritos (rejilla) = $3 \times 5 = 15$ \\
-                Cuadritos oscuros = $2 \times 4 = 8$
-            };
-        \end{scope}
+        % 2. DIBUJAR 2/3 (Filas horizontales)
+        % Rellenar 2 de 3 filas con un patrón o color transparente
+        \fill[red!30, opacity=0.5] (0,0) rectangle (5,2);
+        
+        % Líneas horizontales
+        \foreach \y in {1,2} \draw[red!80, dashed] (0,\y) -- (5,\y);
+        \node[right, red!80!black] at (5, 1) {$\frac{2}{3}$ (Horiz.)};
+
+        % 3. EL CRUCE (Resultado)
+        % Volvemos a dibujar el borde del área de intersección para resaltarla
+        \draw[thick, black] (0,0) rectangle (4,2);
+        % Patrón de rayas para el resultado
+        \foreach \k in {0.2, 0.4, ..., 3.8} \draw[black, opacity=0.3] (\k,0) -- (\k,2);
+        
+        % Etiqueta del resultado
+        \node[white, fill=black!70, rounded corners] at (2,1) {\textbf{Resultado}};
+        
+        % Explicación matemática al lado
+        \node[right, align=left] at (8, 1.5) {
+            Total de cuadros: $3 \times 5 = 15$\\
+            Cuadros en el cruce: $2 \times 4 = 8$\\
+            \\
+            $\displaystyle \frac{2}{3} \cdot \frac{4}{5} = \frac{8}{15}$
+        };
     \end{tikzpicture}
     \end{figure}
- 
-    \begin{enumerate}
-        \item En el \textbf{Paso 1}, dividimos la unidad verticalmente en 5 partes y tomamos 4 (zona azul).
-        \item En el \textbf{Paso 2}, dividimos horizontalmente en 3 partes y seleccionamos 2 filas (zona roja).
-        \item El resultado es la zona roja, que contiene $4 \times 2 = 8$ cuadros.
-        \item El total de cuadros en la rejilla nueva es $5 \times 3 = 15$.
-    \end{enumerate}
-    
-    Por lo tanto:
-    \[ \frac{2}{3} \cdot \frac{4}{5} = \frac{8}{15} \]
 
-   
+    \textbf{Ejemplo Numérico:} Multiplicar $\frac{3}{4}$ por $\frac{5}{7}$:
+    \[ \frac{3}{4} \cdot \frac{5}{7} = \frac{3 \cdot 5}{4 \cdot 7} = \frac{15}{28} \]
+
     \textbf{Recomendación (Simplificación previa):} En la multiplicación es muy útil simplificar cualquier numerador con cualquier denominador \textit{antes} de multiplicar, para evitar trabajar con números muy grandes.
     
     \textbf{Ejemplo con simplificación:} Multiplicar $\frac{4}{9} \cdot \frac{3}{10}$.
