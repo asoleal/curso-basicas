@@ -1,0 +1,288 @@
+\documentclass[letterpaper, 12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{enumitem}
+
+\geometry{left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm}
+
+% Configuración para código Python
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+\title{\textbf{Solucionario: Matemáticas Básicas}\\Parte 1}
+\author{Asistente de IA}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+
+\section{Capítulo 1: Lógica y Conjuntos}
+
+\subsection{1.1.11 Ejercicios (Lógica Proposicional)}
+
+\begin{enumerate}
+    \item \textbf{Determine si las siguientes f.b.f son tautologías:}
+    
+    \begin{enumerate}
+        \item $p \to (q \to p)$ \\
+        \textbf{Solución:} \textbf{Es Tautología}. Conocida como la Ley de Afirmación del Antecedente. Si $p$ es V, entonces $(q \to V)$ es V, y $V \to V$ es V. Si $p$ es F, $F \to (\dots)$ siempre es V.
+        
+        \item $(p \to q) \to p$ \\
+        \textbf{Solución:} \textbf{No es tautología}. Si $p$ es Falso y $q$ es Verdadero: $(F \to V)$ es $V$, y luego $V \to F$ es Falso.
+        
+        \item $(p \lor q) \to r \iff (p \to r) \land (q \to r)$ \\
+        \textbf{Solución:} \textbf{Es Tautología}. Es una equivalencia lógica estándar (prueba por casos).
+        
+        \item $p \to (q \to r) \iff (p \land q) \to r$ \\
+        \textbf{Solución:} \textbf{Es Tautología}. Ley de Exportación.
+        
+        \item $p \to (p \lor q)$ \\
+        \textbf{Solución:} \textbf{Es Tautología}. Ley de Adición.
+        
+        \item $(p \land q) \to (q \land p)$ \\
+        \textbf{Solución:} \textbf{Es Tautología}. Propiedad Conmutativa.
+    \end{enumerate}
+
+    \item \textbf{Evaluación de valores de verdad:} \\
+    Dadas: $p$: ``Hace frío'' (V), $q$: ``Es de noche'' (F).
+    
+    \begin{itemize}
+        \item ``No es de noche o no hace frío'': $\neg q \lor \neg p \equiv \neg(F) \lor \neg(V) \equiv V \lor F \equiv \textbf{Verdadero}$.
+        \item ``Hace frío o no es de noche'': $p \lor \neg q \equiv V \lor V \equiv \textbf{Verdadero}$.
+        \item ``Ni es de noche ni hace frío'': $\neg q \land \neg p \equiv V \land F \equiv \textbf{Falso}$.
+        \item ``Es de noche pero no hace frío'': $q \land \neg p \equiv F \land F \equiv \textbf{Falso}$.
+    \end{itemize}
+
+    \item \textbf{Negaciones:}
+    \begin{itemize}
+        \item De ``No es de noche o no hace frío'' ($\neg q \lor \neg p$):
+        Negación: $\neg(\neg q \lor \neg p) \equiv q \land p$.
+        En español: ``Es de noche y hace frío''.
+        \item De ``Hace frío o no es de noche'' ($p \lor \neg q$):
+        Negación: $\neg(p \lor \neg q) \equiv \neg p \land q$.
+        En español: ``No hace frío y es de noche''.
+    \end{itemize}
+\end{enumerate}
+
+\subsection{1.2.4 Ejercicios Propuestos (Conjuntos)}
+
+\begin{enumerate}
+    \item \textbf{¿Puede suceder que $A \cup B = B$?} \\
+    \textbf{Solución:} Sí. Condición necesaria y suficiente: $A \subseteq B$. Si $A$ está contenido en $B$, al unirlos no se añade nada nuevo a $B$.
+    
+    \item \textbf{¿Puede suceder que $A \cap B = A$?} \\
+    \textbf{Solución:} Sí. Condición necesaria y suficiente: $A \subseteq B$. Si todos los elementos de $A$ están en $B$, su intersección es todo $A$.
+    
+    \item \textbf{¿Puede suceder que $A - B = \emptyset$?} \\
+    \textbf{Solución:} Sí. Ocurre si y solo si $A \subseteq B$. No hay elementos en $A$ que sean "exclusivos" de $A$.
+
+    \item \textbf{Diagramas de Venn (Descripción):}
+    \begin{itemize}
+        \item a) $A \subseteq B \subseteq C$: Círculos concéntricos, $A$ dentro de $B$, $B$ dentro de $C$.
+        \item b) $(A \cap C = \emptyset) \land (B \cap C = \emptyset)$: $C$ está separado (disjunto) de $A$ y de $B$.
+    \end{itemize}
+
+    \item \textbf{Pruebas:}
+    \begin{itemize}
+        \item a) $A \subseteq A \cup B$: Todo elemento $x \in A$ hace verdadera la proposición $x \in A \lor x \in B$.
+        \item b) $A \cap B \subseteq A$: Si $x \in A \land x \in B$, entonces necesariamente $x \in A$.
+    \end{itemize}
+
+    \item \textbf{Sean $A=\{1\}, B=\{1,2\}$:}
+    \begin{itemize}
+        \item a) $A \in B$: \textbf{Falso}. $A$ es un subconjunto, no un elemento.
+        \item b) $A \subseteq B$: \textbf{Verdadero}. El elemento 1 está en $B$.
+        \item c) $1 \in A$: \textbf{Verdadero}.
+    \end{itemize}
+
+    \item \textbf{Ejercicio 3 con $A=\{1\}$ y $B=\{\{1\}, 1\}$:}
+    Calcular $A - B$. El elemento 1 está en $A$ y también en $B$. Por tanto, $A - B = \emptyset$.
+    
+    \item \textbf{Subconjuntos de $S=\{1,2,3,4\}$:} \\
+    Son $2^4 = 16$. $\emptyset, \{1\}, \{2\}, \{3\}, \{4\}, \{1,2\}, \{1,3\}, \dots, \{1,2,3,4\}$.
+
+    \item \textbf{Problema de los 24 libros:}
+    Datos: $|A|=8, |B|=13, |C|=13$. Intesecciones: $|A \cap B|=5, |A \cap C|=3, |B \cap C|=6, |A \cap B \cap C|=2$.
+    Fórmula de unión:
+    $|A \cup B \cup C| = 8 + 13 + 13 - (5+3+6) + 2 = 34 - 14 + 2 = 22$.
+    
+    \begin{enumerate}
+        \item \textbf{Ninguno:} $24 - 22 = 2$ libros.
+        \item \textbf{Únicamente uno:} 
+        Solo A: $8 - (3+1+2) = 2$.
+        Solo B: $13 - (3+4+2) = 4$.
+        Solo C: $13 - (1+4+2) = 6$.
+        Total = $2+4+6 = 12$ libros.
+        \item \textbf{No integración (C) ni Bolzano (B):}
+        Equivale a los que están solo en A o en ninguno. $|A \text{ solo}| + |\text{Ninguno}| = 2 + 2 = 4$ libros.
+    \end{enumerate}
+\end{enumerate}
+
+\subsection{1.4.4 Ejercicios Propuestos con Python}
+
+\textbf{1. Generador de Tablas de Verdad}
+\begin{lstlisting}[language=Python]
+print("p\tq\tr\tResult")
+print("-" * 30)
+for p in [True, False]:
+    for q in [True, False]:
+        for r in [True, False]:
+            resultado = (p and q) or (not r)
+            print(f"{p}\t{q}\t{r}\t{resultado}")
+\end{lstlisting}
+
+\textbf{2. Validador de Subconjuntos}
+\begin{lstlisting}[language=Python]
+entrada1 = input("Lista 1 (sep por comas): ").split(',')
+entrada2 = input("Lista 2 (sep por comas): ").split(',')
+A = set(map(int, entrada1))
+B = set(map(int, entrada2))
+
+if A.issubset(B):
+    print("A es subconjunto de B")
+else:
+    print("A NO es subconjunto de B")
+\end{lstlisting}
+
+\textbf{4. El Problema de los 24 Libros (Script)}
+\begin{lstlisting}[language=Python]
+U = 24
+A, B, C = 8, 13, 13
+AB, AC, BC = 5, 3, 6
+ABC = 2
+
+Union = A + B + C - (AB + AC + BC) + ABC
+Ninguno = U - Union
+print(f"Libros que no estudian ningún tema: {Ninguno}")
+\end{lstlisting}
+
+\newpage
+\section{Capítulo 2: Sistemas Numéricos}
+
+\subsection{2.2 y 2.3 Ejercicios de Aritmética (MCD, MCM)}
+
+\textbf{1. Cálculo de MCD y MCM}
+\begin{itemize}
+    \item a) 450 y 360.
+    $450 = 2 \cdot 3^2 \cdot 5^2$. $360 = 2^3 \cdot 3^2 \cdot 5$.
+    \textbf{MCD:} $2 \cdot 3^2 \cdot 5 = 90$.
+    \textbf{MCM:} $2^3 \cdot 3^2 \cdot 5^2 = 8 \cdot 9 \cdot 25 = 1800$.
+\end{itemize}
+
+\textbf{2. Algoritmo de Euclides (Identidad de Bézout)}
+\begin{itemize}
+    \item a) 123 y 277.
+    $277 = 2(123) + 31$ \\
+    $123 = 3(31) + 30$ \\
+    $31 = 1(30) + 1$ \\
+    $30 = 30(1) + 0$ \\
+    MCD = 1. Expresión: $1 = 31 - 30 = 31 - (123 - 3\cdot 31) = 4\cdot 31 - 123 = 4(277 - 2\cdot 123) - 123 = 4(277) - 9(123)$.
+    $1 = 4(277) - 9(123)$.
+\end{itemize}
+
+\textbf{4. Problema de las Campanas}
+MCM de 45, 60 y 90.
+$45=3^2 \cdot 5$, $60=2^2 \cdot 3 \cdot 5$, $90=2 \cdot 3^2 \cdot 5$.
+MCM = $2^2 \cdot 3^2 \cdot 5 = 4 \cdot 9 \cdot 5 = 180$ minutos.
+Sonarán 3 horas después de las 8:00 a.m., es decir, a las \textbf{11:00 a.m.}
+
+\textbf{5. Problema de Baldosas}
+Se busca el MCD de 420 y 480 para el tamaño máximo.
+$420 = 10 \cdot 42 = 2^2 \cdot 3 \cdot 5 \cdot 7$.
+$480 = 10 \cdot 48 = 2^5 \cdot 3 \cdot 5$.
+MCD = $2^2 \cdot 3 \cdot 5 = 60$.
+a) Lado de la baldosa: \textbf{60 cm}.
+b) Cantidad: $(420/60) \times (480/60) = 7 \times 8 = \textbf{56 baldosas}$.
+
+\textbf{6. Ecuaciones Diofánticas (Granjero)}
+$100x + 17y = 1800$.
+Despejando: $17y = 100(18-x)$. Como 17 es primo y no divide a 100, debe dividir a $(18-x)$.
+Posibles valores para $x$ (vacas, $x \ge 0$): $x=1$ o $x=18$.
+Si $x=1$, $17y = 1700 \Rightarrow y=100$.
+Si $x=18$, $17y = 0 \Rightarrow y=0$.
+\textbf{Solución lógica:} 1 vaca y 100 ovejas. (O 18 vacas y ninguna oveja).
+
+\textbf{12. Sucesión de Fibonacci (Reto)}
+Propiedad: Dos números de Fibonacci consecutivos son coprimos.
+$MCD(F_n, F_{n+1}) = 1$. Se demuestra aplicando Euclides: $F_{n+1} = 1 \cdot F_n + F_{n-1}$, el MCD se traslada a $(F_n, F_{n-1})$ hasta llegar a $(1,1)$.
+
+\subsection{2.8 Ejercicios Propuestos Números Reales}
+
+\textbf{1. Clasificación:}
+\begin{itemize}
+    \item $1.4142$: Racional (decimal finito).
+    \item $\sqrt{2}$: Irracional.
+    \item $3.1416$: Racional (decimal finito).
+    \item $e$: Irracional.
+    \item $0.333\dots$: Racional ($1/3$).
+\end{itemize}
+
+\textbf{4. Inverso Multiplicativo:}
+\begin{itemize}
+    \item a) De 5: $1/5$.
+    \item b) De $3/4$: $4/3$.
+    \item c) De $0.5$ ($1/2$): $2$.
+\end{itemize}
+
+\subsection{2.9 Laboratorio con Python}
+
+\textbf{Ejercicio Propuesto 2 (Ecuación)}
+\begin{lstlisting}[language=Python]
+x = 3
+resultado = (x**4 == -1)
+print(f"¿Es solución? {resultado}") 
+# Salida esperada: False, pues 81 != -1
+\end{lstlisting}
+
+\textbf{Ejercicio Propuesto 3 (Múltiplos)}
+\begin{lstlisting}[language=Python]
+# Múltiplos de 3 del 3 al 15
+multiplos = list(range(3, 16, 3))
+print(multiplos) # [3, 6, 9, 12, 15]
+\end{lstlisting}
+
+\subsection{2.10 Ejercicios de Profundización (MCD Python)}
+
+\textbf{Código para MCD Automatizado:}
+\begin{lstlisting}[language=Python]
+def mcd_euclides(a, b):
+    while b != 0:
+        a, b = b, a % b
+    return a
+
+num1 = 123456
+num2 = 7890
+print(f"El MCD es: {mcd_euclides(num1, num2)}")
+\end{lstlisting}
+
+\end{document}
