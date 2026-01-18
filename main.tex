@@ -20,7 +20,11 @@
 \theoremstyle{definition}
 \newtheorem{ejemplo}{Ejemplo}[chapter]
 \newtheorem{definicion}{Definición}[chapter]
-\newtheorem{teorema}{Teorema}[chapter]
+\theoremstyle{plain}
+\newtheorem{theorem}{Teorema}[section] % Numerado por sección (Teorema 1.1, 1.2...)
+\newtheorem{proposition}[theorem]{Proposición} % Comparte contador con Teorema
+\newtheorem{corollary}[theorem]{Corolario}
+\newtheorem{lemma}[theorem]{Lema}\newtheorem{teorema}{Teorema}[chapter]
 % ============================================================
 
 \newtheorem{propiedad}{Propiedad}[section]
@@ -28,6 +32,42 @@
 
 % hyperref siempre al FINAL del preámbulo
 \usepackage{hyperref}
+% --- INICIO CONFIGURACIÓN PYTHON ---
+\usepackage{listings}
+\usepackage{xcolor}
+
+% Definición de colores para el código
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+% Estilo para Python
+\lstdefinestyle{estilopython}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    language=Python,
+    inputencoding=utf8,
+    extendedchars=true,
+    literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1 {ñ}{{\~n}}1 {Ñ}{{\~N}}1 {¿}{{?`}}1
+}
+
+\lstset{style=estilopython}
+% --- FIN CONFIGURACIÓN PYTHON ---
 
 \title{Matemáticas Básicas}
 \author{John Jairo Leal Gómez}
