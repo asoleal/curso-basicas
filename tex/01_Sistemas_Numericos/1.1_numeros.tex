@@ -207,6 +207,7 @@ $\not1$  &\textcolor{blue}{$2$}  & \textcolor{red}{$3$} & \textcolor{blue}{$\not
          \item Encontrar valores enteros $x$, $y$ que satisfagan $93x-81y=3$
      \end{enumerate}
 \end{enumerate}
+%==========================================================
 
 \section{Ejercicios y Problemas Propuestos}
 
@@ -466,6 +467,39 @@ Así por ejemplo el conjunto $\{\dots -1.2,\ -0.8,\ -0.3333,\ 0,\ 0.5,\ 1.4,\ \d
 
     \textbf{Porcentajes:} como las fracciones representan partes o porciones de una unidad, esa porción se puede escribir de otra forma; así por ejemplo $\frac{1}{2}=0.5$, que si se amplifica por $100$ resultando $0.5=\frac{50}{100}$ y por convención se utiliza que la fracción $\frac{1}{100}$ será equivalente al símbolo \%, así que $0.5=\frac{50}{100}=50\%$ lo que se lee como ``$50$ por ciento''. ¿Qué quiere decir esto? De una cantidad de objetos, digamos $20$, sacar el cincuenta por ciento equivale a multiplicar $(50\%)\cdot (20)$ que es igual a $\frac{50\cdot 20}{100}=\frac{1000}{100}=10$, es decir que el $50\%$ de $20$ son $10$ unidades, es decir la mitad.
     
+    \begin{figure}[ht]
+    \centering
+    \caption{Interpretación gráfica del Porcentaje}\label{fig:porcentaje100}
+    \begin{tikzpicture}[scale=0.8]
+        % 1. La Cuadrícula base (10x10)
+        % Dibujamos 100 cuadritos en gris muy suave
+        \draw[step=0.5cm, gray!30, thin] (0,0) grid (5,5);
+        
+        % 2. Sombreado del 50% (50 cuadritos)
+        % Llenamos la mitad inferior de azul
+        \fill[blue!20] (0,0) rectangle (5,2.5);
+        
+        % 3. Borde grueso del TOTAL (El 100%)
+        \draw[thick, black] (0,0) rectangle (5,5);
+        
+        % --- ANOTACIONES ---
+        
+        % Explicación de 1% (Un solo cuadrito)
+        \fill[red!40] (0,4.5) rectangle (0.5,5); % Pintamos uno rojo
+        \draw[<-] (-0.1, 4.75) -- (-1.5, 4.75) node[left, align=right] {\textbf{1 cuadrito}\\ $0.1=\frac{1}{100} = 1\%$};
+        
+        % Explicación del 50% (Área azul)
+        \node[blue!80!black] at (2.5, 1.25) {\Huge \textbf{50\%}};
+        \node[blue!80!black] at (2.5, 0.6) {50 cuadritos de 100};
+        \node[blue!80!black] at (2.5, 2.0) {$\frac{1}{2}=\frac{50}{100} = 0.5$};
+        
+        % Explicación del 100% (Llave lateral)
+        \draw[decorate, decoration={brace, amplitude=10pt, mirror}, thick] (5.2, 0) -- (5.2, 5) 
+            node[midway, right=15pt, align=left] {\textbf{La Unidad Completa}\\ Total = 100 cuadritos\\ $100\% = \frac{100}{100} = 1$};
+
+    \end{tikzpicture}
+\end{figure}
+
     \item \textbf{Suma de Fraccionarios:} a continuación se presentan diversas opciones para realizar la suma de fracciones, dependiendo de si son \textbf{homogéneas} (mismo denominador) o \textbf{heterogéneas} (denominador distinto).
 
     \begin{enumerate}
@@ -494,6 +528,111 @@ Así por ejemplo el conjunto $\{\dots -1.2,\ -0.8,\ -0.3333,\ 0,\ 0.5,\ 1.4,\ \d
             \frac{7}{90}+\frac{13}{120}=\frac{7\cdot 4+13\cdot 3}{360}=\frac{28+39}{360}=\frac{67}{360}
         \end{equation*}
     \end{enumerate}
+%===============================================================
+\item \textbf{Multiplicación de Fraccionarios:} 
+    Conceptualmente, multiplicar fracciones significa calcular una parte de otra parte. La palabra clave es ``\textbf{de}''. Por ejemplo, $\frac{1}{2} \cdot \frac{3}{4}$ significa obtener ``un medio \textbf{de} tres cuartos''.
+    
+    A diferencia de la suma, el algoritmo es directo o lineal: se multiplica numerador con numerador y denominador con denominador.
+    \begin{equation}
+    \boxed{\frac{a}{b} \cdot \frac{c}{d} = \frac{a \cdot c}{b \cdot d}}
+    \end{equation}
+
+    \textbf{Interpretación Gráfica (Modelo de Área):}
+    Para visualizar $\frac{2}{3} \cdot \frac{4}{5}$, imaginemos una unidad cuadrada.
+    \begin{enumerate}
+        \item Dividimos verticalmente en 5 partes y sombreamos 4 (representando $\frac{4}{5}$).
+        \item Dividimos horizontalmente esa misma unidad en 3 partes y sombreamos 2 (representando $\frac{2}{3}$).
+        \item El resultado es la región donde se cruzan ambos colores (la doble sombra).
+    \end{enumerate}
+
+    \begin{figure}[ht]
+    \centering
+    \caption{Multiplicación Gráfica: $\frac{2}{3}$ de $\frac{4}{5}$}\label{fig:multfrac}
+    \begin{tikzpicture}[scale=0.8]
+        % 1. DIBUJAR 4/5 (Columnas verticales)
+        % Fondo blanco
+        \draw[thick] (0,0) rectangle (5,3);
+        
+        % Rellenar 4 de 5 columnas en azul suave
+        \fill[cyan!30] (0,0) rectangle (4,3);
+        
+        % Líneas verticales
+        \foreach \x in {1,2,3,4} \draw[cyan!80, dashed] (\x,0) -- (\x,3);
+        \node[above, cyan!80!black] at (2.5, 3) {$\frac{4}{5}$ (Vertical)};
+
+        % 2. DIBUJAR 2/3 (Filas horizontales)
+        % Rellenar 2 de 3 filas con un patrón o color transparente
+        \fill[red!30, opacity=0.5] (0,0) rectangle (5,2);
+        
+        % Líneas horizontales
+        \foreach \y in {1,2} \draw[red!80, dashed] (0,\y) -- (5,\y);
+        \node[right, red!80!black] at (5, 1) {$\frac{2}{3}$ (Horiz.)};
+
+        % 3. EL CRUCE (Resultado)
+        % Volvemos a dibujar el borde del área de intersección para resaltarla
+        \draw[thick, black] (0,0) rectangle (4,2);
+        % Patrón de rayas para el resultado
+        \foreach \k in {0.2, 0.4, ..., 3.8} \draw[black, opacity=0.3] (\k,0) -- (\k,2);
+        
+        % Etiqueta del resultado
+        \node[white, fill=black!70, rounded corners] at (2,1) {\textbf{Resultado}};
+        
+        % Explicación matemática al lado
+        \node[right, align=left] at (8, 1.5) {
+            Total de cuadros: $3 \times 5 = 15$\\
+            Cuadros en el cruce: $2 \times 4 = 8$\\
+            \\
+            $\displaystyle \frac{2}{3} \cdot \frac{4}{5} = \frac{8}{15}$
+        };
+    \end{tikzpicture}
+    \end{figure}
+
+    \textbf{Ejemplo Numérico:} Multiplicar $\frac{3}{4}$ por $\frac{5}{7}$:
+    \[ \frac{3}{4} \cdot \frac{5}{7} = \frac{3 \cdot 5}{4 \cdot 7} = \frac{15}{28} \]
+
+%===============================================================
+    
+    \textbf{Recomendación (Simplificación previa):} En la multiplicación es muy útil simplificar cualquier numerador con cualquier denominador \textit{antes} de multiplicar, para evitar trabajar con números muy grandes.
+    
+    \textbf{Ejemplo con simplificación:} Multiplicar $\frac{4}{9} \cdot \frac{3}{10}$.
+    \[ \frac{\textcolor{red}{4}}{\textcolor{blue}{9}} \cdot \frac{\textcolor{blue}{3}}{\textcolor{red}{10}} = \frac{\cancelto{2}{4} \cdot \cancelto{1}{3}}{\cancelto{3}{9} \cdot \cancelto{5}{10}} = \frac{2 \cdot 1}{3 \cdot 5} = \frac{2}{15} \]
+    En este caso, simplificamos el 4 con el 10 (sacando mitad) y el 3 con el 9 (sacando tercera).
+    
+    \item \textbf{División de Fraccionarios:} La división de fracciones no se realiza dividiendo directamente. Existen dos métodos principales para convertirla en una multiplicación:
+    
+    \textbf{Método 1: Invertir el divisor.} Se multiplica la primera fracción (dividendo) por el \textbf{inverso multiplicativo} de la segunda fracción (divisor).
+    \begin{equation}
+    \boxed{\frac{a}{b} \div \frac{c}{d} = \frac{a}{b} \cdot \frac{d}{c} = \frac{a \cdot d}{b \cdot c}}
+    \end{equation}
+    
+    \textbf{Ejemplo:} $\frac{2}{3} \div \frac{5}{7}$.
+    \[ \frac{2}{3} \div \frac{5}{7} = \frac{2}{3} \cdot \frac{7}{5} = \frac{14}{15} \]
+    
+    \textbf{Método 2: Ley de la Oreja (Producto de extremos y medios).} Se organiza la división como una "fracción de fracciones". El resultado es el producto de los extremos (los números de más arriba y más abajo) sobre el producto de los medios (los números internos).
+    
+    \begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}
+       \node (A) at (0,1.2) {$a$};
+       \node (B) at (0,0.6) {$b$};
+       \draw (A.south west) -- (A.south east); % Línea fracción arriba
+       
+       \node (C) at (0,-0.6) {$c$};
+       \node (D) at (0,-1.2) {$d$};
+       \draw (C.south west) -- (C.south east); % Línea fracción abajo
+       
+       \draw[thick] (-0.5,0) -- (0.5,0); % Línea fracción principal
+       
+       \draw[red, ->] (A.east) to[bend left=60] node[midway, right] {Extremos ($a \cdot d$)} (D.east);
+       \draw[blue, ->] (B.east) to[bend left=60] node[midway, right] {Medios ($b \cdot c$)} (C.east);
+       
+       \node at (4,0) {$= \dfrac{a \cdot d}{b \cdot c}$};
+    \end{tikzpicture}
+    \caption{Ley de la Oreja}\label{fig:leyoreja}
+    \end{figure}
+    
+    \textbf{Ejemplo:} $\dfrac{\frac{1}{2}}{\frac{3}{5}} = \frac{1 \cdot 5}{2 \cdot 3} = \frac{5}{6}$.
+    
 \end{enumerate}
 
 \subsection*{Ejemplos Resueltos Adicionales}
@@ -535,7 +674,483 @@ Así por ejemplo el conjunto $\{\dots -1.2,\ -0.8,\ -0.3333,\ 0,\ 0.5,\ 1.4,\ \d
     \item Un tanque se llena hasta sus $3/4$ partes. Si se sacan $1/5$ del total del tanque, ¿qué fracción del tanque queda llena?
 \end{enumerate}
 
-\section{Números Irracionales y el Conjunto de los Reales $\mathbb{R}$}
+\subsection*{Ejemplos Resueltos Adicionales}
+
+\begin{ejemplo}
+    Simplifique la fracción $\frac{84}{126}$ hasta su mínima expresión.
+    
+    \textbf{Solución:}
+    Descomponemos numerador y denominador:
+    $84 = 2^2 \cdot 3 \cdot 7$ y $126 = 2 \cdot 3^2 \cdot 7$.
+    \[ \frac{84}{126} = \frac{2^2 \cdot 3 \cdot 7}{2 \cdot 3^2 \cdot 7} = \frac{2}{3} \]
+\end{ejemplo}
+
+\begin{ejemplo}
+    Convierta el decimal periódico $0.333\dots$ a fracción.
+    
+    \textbf{Solución:}
+    Sea $x = 0.333\dots$. Multiplicamos por 10: $10x = 3.333\dots$.
+    Restamos $x$:
+    \[ 10x - x = 3.333\dots - 0.333\dots \implies 9x = 3 \implies x = \frac{3}{9} = \frac{1}{3} \]
+\end{ejemplo}
+
+\subsection*{Ejercicios Propuestos}
+
+\begin{enumerate}
+    \item Realice las siguientes sumas y simplifique el resultado:
+    \begin{enumerate}
+        \item $\frac{3}{8} + \frac{1}{8}$
+        \item $\frac{2}{5} + \frac{1}{3}$
+        \item $\frac{5}{12} + \frac{7}{18}$
+    \end{enumerate}
+    
+    \item Determine si las siguientes parejas de fracciones son equivalentes:
+    \begin{enumerate}
+        \item $\frac{3}{5}$ y $\frac{9}{15}$
+        \item $\frac{4}{7}$ y $\frac{12}{20}$
+    \end{enumerate}
+
+    \item Un tanque se llena hasta sus $3/4$ partes. Si se sacan $1/5$ del total del tanque, ¿qué fracción del tanque queda llena?
+\end{enumerate}
+\section{El Conjunto de los Números Racionales $\mathbb{Q}$}
+
+En la sección anterior se estudiaron las operaciones en naturales. Al realizar la división se obtuvieron términos de la forma $a/b$ o $a\div b$, cuya división podía ser exacta o no. De la misma forma, al intentar resolver ecuaciones de la forma $2x=3$, se encuentra que no tiene solución en los enteros, pues su solución es $x=\frac{3}{2}\notin\mathbb{Z}$. Así que es necesario entonces construir otro conjunto en el que halle este tipo de números, al cual denominamos el conjunto de los números \textbf{Racionales} $\mathbb{Q}$. Este conjunto contiene todos los enteros y los números de la forma $\frac{a}{b}$ o números fraccionarios donde $a,\ b\in\mathbb{Z}$, con $b\neq 0$, puesto que la división por cero produce una indeterminación. Los Racionales también se pueden identificar porque su desarrollo decimal es finito, o infinito periódico. Por ejemplo, el número Racional $\frac{2}{3}=0.66666\dots$, o $\frac{1}{2}=0.5$. El conjunto de los número Racionales se puede escribir como:
+
+\begin{equation}
+\mathbb{Q}=\left\{\frac{a}{b} \mid a,b\in\mathbb{Z}, b\neq 0\right\}.
+\end{equation}
+
+Así por ejemplo el conjunto $\{\dots -1.2,\ -0.8,\ -0.3333,\ 0,\ 0.5,\ 1.4,\ \dots\}\subset\mathbb{Q}$ es un subconjunto del conjunto de los números racionales, cuya característica es que su desarrollo decimal es finito o infinito periódico. A continuación presentamos algunas características importantes en el desarrollo de los números racionales:
+
+\begin{enumerate}
+    \item \textbf{Significado:} Cuando estamos hablando de una fracción o una razón nos referiremos al cociente de dos números enteros $\frac{a}{b}$ siempre considerando que $b\neq 0$, se lee ``$a$ es a $b$'' o ``$a$ sobre $b$''. Siempre vamos a partir de una \textbf{unidad} o un valor que será nuestra \textbf{referencia} que se tomará como unidad; por ejemplo si tenemos una pizza, o un rectángulo, o un círculo, o un segmento se supone que es la unidad de medida patrón. Entonces el denominador $b$ representa el número de partes iguales en que se divide esa unidad, mientras que el numerador $a$ representa la cantidad que se toma o que se seleccionan del número total partido. Así por ejemplo $\frac{3}{4}$ significa que la unidad se partió en $4$ partes iguales y de esas se seleccionaron $3$. Veamos esto gráficamente: en la figura \ref{fig:fraccion01} se puede apreciar que la circunferencia se partió en $4$ partes iguales y se tomaron $3$ de ellas, por lo tanto la región sombreada representa $3/4$ de la circunferencia y la región en blanco representa $1/4$:
+
+    \begin{figure}[ht]
+    \caption{Representación Gráfica de la Fracción $\frac{3}{4}$}\label{fig:fraccion01}
+    \centering
+    \begin{tikzpicture}
+    \filldraw[fill=green!20,draw=green!50!black] (0,0) -- (1cm,0cm) arc [start angle=0, end angle=90, radius=1cm] -- cycle;
+    \filldraw[fill=green!20,draw=green!50!black] (0,0) -- (0cm,1cm) arc [start angle=90, end angle=180, radius=1cm] -- cycle;
+    \draw[fill=green!20,draw=green!50!black] (0,0) -- (-1cm,0cm) arc [start angle=180, end angle=270, radius=1cm] -- cycle;
+    \draw[green!20,draw=green!50!black] (0,0) -- (0cm,-1cm) arc [start angle=270, end angle=360, radius=1cm] -- cycle;
+    \node at (-0.5,0.4) {$\frac{3}{4}$};
+    \node at (0.5,-0.4) {$\frac{1}{4}$};
+    \end{tikzpicture}
+    \end{figure}
+
+    Si solo se utiliza una unidad, la fracción se llama \textbf{propia}; en el caso que acabamos de ver $3/4$ es una fracción propia en la cual el numerador es menor que el denominador y se dice que la fracción es menor que la unidad. Mientras que si se utiliza más de una unidad en su representación, esta se denomina fracción \textbf{impropia} y por supuesto resulta ser mayor que la unidad. Veamos un caso: representemos el número $5/3$. En este caso tomamos la unidad y la partimos en tres partes iguales, pero solo podemos tomar $3$ partes de esa unidad; se hace necesario entonces tomar otra unidad y partirla también en $3$ partes, de las cuales tomaremos $2$ para completar la fracción solicitada que se muestra en la figura \ref{fig:fraccion02}. En esa misma figura podemos ver que para representar la fracción se utilizó una unidad entera y $2/3$ de otra unidad; se puede escribir esta fracción como un número mixto $\frac{5}{3}=1\frac{2}{3}$ y se lee ``un entero dos tercios''.
+
+    \begin{figure}[ht]
+    \caption{Representación de la fracción impropia $5/3$}\label{fig:fraccion02}
+    \centering
+    \begin{tikzpicture}
+    \filldraw[red!30] (-2,-2) rectangle (-1,1);
+    \draw (-2,-2) rectangle (-1,1);
+    \draw (-2,-1)--(-1,-1);
+    \draw (-2,0)--(-1,0);
+    \filldraw[red!30] (0,-2) rectangle (1,-1);
+    \draw (0,-2) rectangle (1,-1);
+    \filldraw[red!30] (0,-1) rectangle (1,0);
+    \draw (0,-1) rectangle (1,0);
+    \draw (0,-2) rectangle (1,1);
+    \node at (-1.5,-2.5) {$1=\frac{3}{3}$};
+    \node at (0.5,-2.5) {$\frac{2}{3}$};
+    \end{tikzpicture}
+    \end{figure}
+
+    Veamos que esto tiene relación directa con el algoritmo de Euclides, pues al hacer la división de $5$ entre $3$ se obtiene:
+    \begin{center}
+    \opidiv[displayintermediary=all, voperation=top]{5}{3}
+    \end{center}
+    Que lo escribimos como: 
+    \[ \frac{5}{3}=1+\frac{2}{3} \]
+    Una conclusión que podemos sacar de esta explicación es que si una unidad se divide en un número $b$ de partes y se toman $b$ partes, estamos tomando el equivalente a toda la unidad, así $\frac{3}{3}=1$, $\frac{5}{5}=1$. 
+
+    \textbf{Propiedad de los racionales:} a cada racional $b\neq 0$ le corresponde otro racional $\frac{1}{b}$ tal que $b\cdot\frac{1}{b}=1$. Al número $\frac{1}{b}$ se le llama inverso multiplicativo del número $b$. En algunas ocasiones esto se escribe como la cancelación del número $b$ tanto en el numerador como en el denominador así $\cancel{b}\cdot{\frac{1}{\cancel{b}}}=1$. Así por ejemplo el inverso de $3$ es $\frac{1}{3}$ y cumple que $\cancel{3}\cdot\frac{1}{\not3}=1$, el inverso de $4$ es $\frac{1}{4}$ y cumple que $\cancel{4}\cdot\frac{1}{\not4}=1$, etc.
+
+    \textbf{Representación sobre una recta:} Otra forma de representar los fraccionarios es sobre una recta infinita; se selecciona un punto arbitrario y se le asigna el número $0$, luego se selecciona un segmento (de cualquier longitud) que será nuestra unidad. Si por ejemplo queremos representar el fraccionario $1/2$ basta con dividir nuestra unidad en $2$ partes iguales y ubicar el segmento, allí estará el valor de la fracción, ver figura \ref{fig:fraccion03}.
+
+    \begin{figure}[ht]
+    \caption{Representación sobre una recta}\label{fig:fraccion03}
+    \centering
+    \begin{tikzpicture}
+    \draw[->] (-1,0)--(2,0);
+    \draw (0,0.1)--(0,-0.1);
+    \node[below] at (0,0) {$0$};
+    \draw (1,0.1)--(1,-0.1);
+    \node[below] at (1,0) {$1$};
+    \draw (0.5,0.1)--(0.5,-0.1);
+    \node[above] at (0.5,0) {$\frac{1}{2}$};
+    \end{tikzpicture}
+    \end{figure}
+
+    \item \textbf{Equivalencias:} los fraccionarios tienen distintas formas de escritura o de representación; en esta sección revisaremos algunas de esas representaciones equivalentes.
+
+    \textbf{Fracciones equivalentes:} Una unidad se puede partir de distintas maneras. Así por ejemplo se puede representar el fraccionario $\frac{1}{2}$ partiendo la unidad en $2$ partes iguales y tomando una de esas partes como se puede apreciar en la figura \ref{fig:fraccion04}, pero al partir la misma unidad en $4$ partes iguales y tomar dos de esas partes se obtiene la misma región sombreada; el fraccionario equivalente es $\frac{2}{4}$, así podemos decir que $\frac{1}{2}=\frac{2}{4}$. Si partimos la unidad en $8$ partes y tomamos $4$ también podemos ver que representa la misma región sombreada, así $\frac{4}{8}=\frac{1}{2}$. En general diremos que dos fracciones son equivalentes si representan la misma región.
+
+    \begin{figure}[ht]
+    \caption{Fracciones Equivalentes a $\frac{1}{2}$}\label{fig:fraccion04}
+    \centering
+    \begin{tikzpicture}
+    \filldraw[fill=green!20,draw=green!50!black] (0,0) -- (1cm,0cm) arc [start angle=0, end angle=180, radius=1cm] -- cycle;
+    \draw[green!20,draw=green!50!black] (0,0) -- (-1cm,0cm) arc [start angle=180, end angle=360, radius=1cm] -- cycle;
+    \draw (0,0)--(0,1);
+    \draw (0,0)--(-1,0);
+    \draw (0,0)--(0,-1);
+    \draw (0,0)--(1,0);
+    \node at (0,-1.4) {$\frac{2}{4}=\frac{1}{2}$};
+    
+    \begin{scope}[shift={(3,0)}]
+    \filldraw[fill=green!20,draw=green!50!black] (0,0) -- (1cm,0cm) arc [start angle=0, end angle=180, radius=1cm] -- cycle;
+    \draw[green!20,draw=green!50!black] (0,0) -- (1cm,0cm) arc [start angle=0, end angle=-180, radius=1cm] -- cycle;
+    \draw[red] (0,0)--(0.71,0.71);
+    \draw[red] (0,0)--(0,1);
+    \draw[red] (0,0)--(-0.71,0.71);
+    \draw[red] (0,0)--(-0.71,-0.71);
+    \draw[red] (0,0)--(0.0,-1.0);
+    \draw[red] (0,0)--(0.71,-0.71);
+    \node at (0,-1.4) {$\frac{4}{8}=\frac{1}{2}$};
+    \end{scope}
+    \end{tikzpicture}
+    \end{figure}
+
+    Es posible obtener fracciones equivalentes a una fracción dada si multiplicamos tanto el numerador como el denominador por una misma cantidad; las fracciones resultantes son equivalentes. A este proceso lo llamaremos \textbf{amplificación}, así por ejemplo: 
+    \[ \frac{1}{2}=\frac{1\cdot 2}{2\cdot 2}=\frac{2}{4} \] 
+    También lo podemos hacer por $4$ y resulta:
+    \[ \frac{1}{2}=\frac{1\cdot 4}{2\cdot 4}=\frac{4}{8} \] 
+    En realidad, podemos amplificar una fracción por cualquier número, resultando siempre una fracción equivalente.
+
+    Para comprobar que dos fracciones digamos $\frac{a}{b}$ y $\frac{c}{d}$ son iguales, es posible hacer el producto cruzado: 
+    \begin{equation}
+    \frac{a}{b}=\frac{c}{d}\ \iff\ a\cdot d=c\cdot b 
+    \end{equation}
+    Así por ejemplo para determinar que $2/4$ equivale a $1/2$ podemos hacer $\frac{2}{4}=\frac{1}{2}$ y probar que $2\cdot 2=1\cdot 4=4$ y por tanto las fracciones son equivalentes.
+
+    \textbf{Simplificación:} Cuando se tiene una fracción y tanto el numerador como el denominador se pueden escribir con su factorización prima, se pueden hacer las simplificaciones correspondientes y obtener una fracción equivalente a la fracción original. Así para el fraccionario $\frac{18}{24}$, descomponemos $18=2\cdot 3^2$ y $24=2^3\cdot 3$ y utilizando las propiedades de la potenciación resulta:
+    \[ \frac{18}{24}=\frac{\cancel{2}\cdot 3^{\not2}}{2^{\not3}\cdot \cancel{3}}=\frac{3}{4} \]
+    Que son equivalentes, pues al multiplicar en cruz se obtiene $18\cdot 4=72=3\cdot 24$.
+
+    Al representar las fracciones sobre una recta, se está diciendo que el punto $1/2$ también se puede escribir como $\frac{\textcolor{red}{1}}{\textcolor{red}{2}}=\frac{\textcolor{blue}{2}}{\textcolor{blue}{4}}=\frac{\textcolor{brown}{3}}{\textcolor{brown}{6}}=\cdots$, como se puede ver en la figura \ref{fig:fraccion05}.
+
+    \begin{figure}[ht]
+    \caption{Fracciones Equivalentes}\label{fig:fraccion05}
+    \centering
+    \begin{tikzpicture}
+    \draw[->] (-1,0)--(4,0);
+    \draw (0,0.1)--(0,-0.1);
+    \node[below] at (0,0) {$0$};
+    \draw (2,0.1)--(2,-0.1);
+    \node[below] at (2,0) {$1$};
+    \draw (1,0.1)--(1,-0.1);
+    \node at (1,0) {$\bullet$}; 
+    \node at (1,0.5) {$\frac{\textcolor{red}{1}}{\textcolor{red}{2}}$};
+    \node at (1,-0.5) {$\frac{\textcolor{blue}{2}}{\textcolor{blue}{4}}$};
+    \node at (1,-1.1) {$\frac{\textcolor{brown}{3}}{\textcolor{brown}{6}}$};
+    \node at (1,-1.6) {$\vdots$};
+    \end{tikzpicture}
+    \end{figure}
+
+    Lo que indica que un punto sobre la recta tiene una cantidad infinita de representaciones.
+
+    \textbf{Representación Decimal:} al hacer la división de un entero entre otro, puede ocurrir que la división sea exacta, por ejemplo al dividir $12\div 4 = 3$, pero puede ocurrir que la división no sea exacta como cuando tratamos de hacer $\frac{11}{4}$. En la figura \ref{fig:divisiondecimal01} se hacen los primeros pasos, de la misma forma que lo hacíamos en el algoritmo de Euclides:
+
+    \begin{figure}[ht]
+    \centering
+    \opidiv[displayintermediary=all, voperation=top]{11}{4}
+    \caption{División con Decimales (Inicio)}\label{fig:divisiondecimal01}
+    \end{figure}
+
+    Es claro que ningún número multiplicado por $4$ da $3$ como resultado, razón por la cual se agrega un $0$ al lado del $3$ y se coloca una coma en el cociente. Ahora se busca un número que multiplicado por $4$ esté cerca de $30$, este es $7$, y luego repetimos el proceso hasta obtener residuo cero, como se ve en la figura \ref{fig:divisiondecimal03}:
+
+    \begin{figure}[ht]
+    \centering
+    \opidiv[displayintermediary=all, voperation=top]{11}{4}
+    \caption{División con Decimales (Completa)}\label{fig:divisiondecimal03}
+    \end{figure}
+    
+    Lo que quiere decir que $11/4$ equivale a $2,75$, y así cada uno de los racionales tiene una representación decimal; por ejemplo $\frac{1}{2}=0.5$, $\frac{2}{3}=0.66\bar{6}$ en el que la barra sobre el $6$ significa que el desarrollo decimal tiene infinitos números $6$. Así que podemos caracterizar los números racionales como aquellos números cuyo decimal sea finito, o infinito periódico. En resumen escribiremos que el conjunto de los números racionales $\mathbb{Q}$ se puede escribir como:
+    \begin{align}
+    \mathbb{Q} &= \left\{\frac{a}{b} \mid a,b\in\mathbb{Z}, b\neq 0\right\} \\
+               &= \{\text{Números con desarrollo decimal finito o infinito periódico}\}
+    \end{align}
+    Todo número entero es un número racional, pues si $m\in\mathbb{Z}$ se puede escribir como $\frac{m}{1}=m$.
+
+    \textbf{Porcentajes:} como las fracciones representan partes o porciones de una unidad, esa porción se puede escribir de otra forma; así por ejemplo $\frac{1}{2}=0.5$, que si se amplifica por $100$ resultando $0.5=\frac{50}{100}$ y por convención se utiliza que la fracción $\frac{1}{100}$ será equivalente al símbolo \%, así que $0.5=\frac{50}{100}=50\%$ lo que se lee como ``$50$ por ciento''. ¿Qué quiere decir esto? De una cantidad de objetos, digamos $20$, sacar el cincuenta por ciento equivale a multiplicar $(50\%)\cdot (20)$ que es igual a $\frac{50\cdot 20}{100}=\frac{1000}{100}=10$, es decir que el $50\%$ de $20$ son $10$ unidades, es decir la mitad.
+    
+    \item \textbf{Suma de Fraccionarios:} a continuación se presentan diversas opciones para realizar la suma de fracciones, dependiendo de si son \textbf{homogéneas} (mismo denominador) o \textbf{heterogéneas} (denominador distinto).
+
+    \begin{enumerate}
+        \item \textbf{Suma de Fracciones Homogéneas:} si tienen el mismo denominador, se suman los numeradores y se deja el mismo denominador:
+        \begin{equation}
+        \boxed{\frac{a}{b}+\frac{c}{b}=\frac{a+c}{b}}
+        \end{equation}
+        Por ejemplo: 
+        \[ \frac{2}{5}+\frac{4}{5}=\frac{6}{5} \]
+
+        \item \textbf{Suma de Fracciones Heterogéneas:} dadas dos fracciones con diferente denominador hay varias formas para realizar su suma:
+        
+        \textbf{Multiplicación en Cruz:}
+        \begin{equation}
+        \boxed{\frac{a}{b}+\frac{c}{d}=\frac{ad+bc}{bd}}
+        \end{equation}
+        Ejemplo:
+        \[ \frac{3}{\textcolor{red}{4}}+\frac{\textcolor{brown}{2}}{\textcolor{blue}{5}}=\frac{3\cdot \textcolor{blue}{5}+\textcolor{brown}{2}\cdot \textcolor{red}{4}}{\textcolor{red}{4}\cdot \textcolor{blue}{5}}=\frac{15+8}{20}=\frac{23}{20} \]
+
+        \textbf{Amplificando las fracciones:} para dejarlas con el mismo denominador.
+        \[ \frac{2}{3}+4=\frac{2}{3}+\frac{4}{1}\cdot\frac{3}{3}=\frac{2}{3}+\frac{12}{3}=\frac{14}{3} \]
+
+        \textbf{Utilizando el MCM:} Sumar $\frac{7}{90}$ con $\frac{13}{120}$. 
+        $\mathcal{MCM}(90,120)=360$.
+        \begin{equation*}
+            \frac{7}{90}+\frac{13}{120}=\frac{7\cdot 4+13\cdot 3}{360}=\frac{28+39}{360}=\frac{67}{360}
+        \end{equation*}
+    \end{enumerate}
+
+\item \textbf{Multiplicación de Fraccionarios:} 
+    Conceptualmente, multiplicar fracciones significa calcular una parte de otra parte. La palabra clave es ``\textbf{de}''.
+    
+    El algoritmo es directo: numerador por numerador y denominador por denominador.
+    \begin{equation}
+    \boxed{\frac{a}{b} \cdot \frac{c}{d} = \frac{a \cdot c}{b \cdot d}}
+    \end{equation}
+    \textbf{Ejemplo Numérico:} Multiplicar $\frac{2}{3}$ por $\frac{4}{5}$:
+    \[ \frac{2}{3} \cdot \frac{4}{5} = \frac{2 \cdot 4}{3 \cdot 5} = \frac{8}{15} \]
+
+    \textbf{Explicación Gráfica (Paso a paso):} 
+    Vamos a visualizar la operación $\frac{2}{3} \cdot \frac{4}{5}$ (que se lee: ``dos tercios \textbf{de} cuatro quintos'') ver figura \ref{fig:multpasos}.
+    
+       \begin{figure}[ht]
+    \centering
+    \caption{Proceso gráfico de multiplicación con rejilla}\label{fig:multpasos}
+    \begin{tikzpicture}[scale=0.8]
+        % --- PASO 1: Representar 4/5 ---
+        \node[align=center] at (2.5, 3.8) {\textbf{Paso 1}\\Representamos $\frac{4}{5}$};
+        % Relleno Azul
+        \fill[cyan!30] (0,0) rectangle (4,3);
+        % Borde Unidad
+        \draw[thick] (0,0) rectangle (5,3);
+        % Divisiones Verticales (Quintos) - Sólidas
+        \foreach \x in {1,2,3,4} \draw[thick] (\x,0) -- (\x,3);
+        
+        % Flecha de transición
+        \draw[->, ultra thick, gray] (5.5, 1.5) -- (7.5, 1.5);
+
+        % --- PASO 2: Cruzar con 2/3 y ver la rejilla ---
+        \begin{scope}[shift={(8,0)}]
+            \node[align=center] at (2.5, 3.8) {\textbf{Paso 2}\\Tomamos $\frac{2}{3}$ de lo anterior};
+            
+            % 1. Relleno Final (Intersección) - Más oscuro para destacar
+            \fill[red!60] (0,0) rectangle (4,2);
+            
+            % 2. Borde Unidad
+            \draw[thick] (0,0) rectangle (5,3);
+            
+            % 3. LA REJILLA COMPLETA (Líneas punteadas para visualizar el total)
+            % Verticales (Quintos)
+            \foreach \x in {1,2,3,4} \draw[densely dashed, black!70] (\x,0) -- (\x,3);
+            % Horizontales (Tercios)
+            \foreach \y in {1,2} \draw[densely dashed, black!70] (0,\y) -- (5,\y);
+            
+            % Etiquetas explicativas
+            \draw[decorate, decoration={brace, amplitude=5pt}, thick] (-0.2, 0) -- (-0.2, 2) 
+                node[midway, left=5pt] {$\frac{2}{3}$};
+                
+            \node[white, font=\bfseries] at (2,1) {8 partes};
+            \node[black!60, font=\footnotesize] at (4.5, 2.5) {Sobran};
+            
+            % Conteo visual abajo
+            \node[below, align=center] at (2.5, -0.2) {
+                Total cuadritos (rejilla) = $3 \times 5 = 15$ \\
+                Cuadritos oscuros = $2 \times 4 = 8$
+            };
+        \end{scope}
+    \end{tikzpicture}
+    \end{figure}
+ 
+    \begin{enumerate}
+        \item En el \textbf{Paso 1}, dividimos la unidad verticalmente en 5 partes y tomamos 4 (zona azul).
+        \item En el \textbf{Paso 2}, dividimos horizontalmente en 3 partes y seleccionamos 2 filas (zona roja).
+        \item El resultado es la zona roja, que contiene $4 \times 2 = 8$ cuadros.
+        \item El total de cuadros en la rejilla nueva es $5 \times 3 = 15$.
+    \end{enumerate}
+    
+    Por lo tanto:
+    \[ \frac{2}{3} \cdot \frac{4}{5} = \frac{8}{15} \]
+
+   
+    \textbf{Recomendación (Simplificación previa):} En la multiplicación es muy útil simplificar cualquier numerador con cualquier denominador \textit{antes} de multiplicar, para evitar trabajar con números muy grandes.
+    
+    \textbf{Ejemplo con simplificación:} Multiplicar $\frac{4}{9} \cdot \frac{3}{10}$.
+    \[ \frac{\textcolor{red}{4}}{\textcolor{blue}{9}} \cdot \frac{\textcolor{blue}{3}}{\textcolor{red}{10}} = \frac{\cancelto{2}{4} \cdot \cancelto{1}{3}}{\cancelto{3}{9} \cdot \cancelto{5}{10}} = \frac{2 \cdot 1}{3 \cdot 5} = \frac{2}{15} \]
+    En este caso, simplificamos el 4 con el 10 (sacando mitad) y el 3 con el 9 (sacando tercera).
+    
+    \item \textbf{División de Fraccionarios:} 
+    Conceptualmente, la división $\frac{a}{b} \div \frac{c}{d}$ responde a la pregunta: \textbf{¿Cuántas veces cabe la fracción $\frac{c}{d}$ dentro de la fracción $\frac{a}{b}$?}
+    
+    Existen dos métodos mecánicos principales para resolverla:
+    
+    \textbf{Método 1: Invertir y Multiplicar.} Se multiplica la primera fracción (dividendo) por el \textbf{inverso multiplicativo} de la segunda fracción (divisor).
+    \begin{equation}
+    \boxed{\frac{a}{b} \div \frac{c}{d} = \frac{a}{b} \cdot \frac{d}{c} = \frac{a \cdot d}{b \cdot c}}
+    \end{equation}
+    
+    \textbf{Explicación Gráfica (El concepto de cabida):}
+    Vamos a visualizar la división $\frac{3}{4} \div \frac{1}{8}$.
+    
+    Matemáticamente, aplicando la fórmula:
+    \[ \frac{3}{4} \div \frac{1}{8} = \frac{3}{4} \cdot \frac{8}{1} = \frac{24}{4} = 6 \]
+    Esto nos dice que $\frac{1}{8}$ cabe exactamente \textbf{6 veces} en $\frac{3}{4}$. Veámoslo:
+
+        \begin{figure}[ht]
+    \centering
+    \caption{Visualización de $\frac{3}{4} \div \frac{1}{8}$ (¿Cuántos octavos caben?)}\label{fig:divfrac}
+    \begin{tikzpicture}[scale=0.9]
+        % --- ESCALA: 8 unidades de ancho = 1 Entero ---
+        
+        % --- NIVEL 1: EL CONTENEDOR (3/4) ---
+        \node[anchor=west, blue!80!black] at (0, 3.5) {\textbf{1. El Contenedor ($\frac{3}{4}$)}};
+        
+        % La Unidad completa fantasma (para referencia)
+        \draw[black!80] (0,2.5) rectangle (8,3.2);
+        
+        % El 3/4 relleno
+        \fill[green!20] (0,2.5) rectangle (6,3.2);
+        \draw[thick] (0,2.5) rectangle (6,3.2);
+        
+        % Divisiones de cuartos
+        \foreach \x in {2,4,6} \draw[thick, green!50!black] (\x,2.5) -- (\x,3.2);
+        
+        % Etiquetas de cuartos
+        \node at (1, 2.85) {$\frac{1}{4}$};
+        \node at (3, 2.85) {$\frac{1}{4}$};
+        \node at (5, 2.85) {$\frac{1}{4}$};
+        
+        % --- LÍNEAS GUÍA (Muestran que 1/4 = 2/8) ---
+        \foreach \x in {2,4,6} \draw[densely dashed, gray] (\x, 2.5) -- (\x, 1.2);
+
+        % --- NIVEL 2: LAS PIEZAS (1/8) ---
+        \node[anchor=west, red!80!black] at (0, 1.5) {\textbf{2. Las Piezas ($\frac{1}{8}$)}};
+        
+        % Dibujamos las 6 cajitas que caben
+        \foreach \i in {0,1,2,3,4,5} {
+            % Caja naranja
+            \fill[orange!30] (\i,0.5) rectangle (\i+1,1.2);
+            \draw[thick, orange!80!black] (\i,0.5) rectangle (\i+1,1.2);
+            % Texto pequeño dentro
+            \node[font=\tiny] at (\i+0.5, 0.85) {$\frac{1}{8}$};
+            % Número de conteo abajo
+            \node[font=\bfseries, below] at (\i+0.5, 0.5) {\number\numexpr\i+1};
+        }
+        
+        % --- NIVEL 3: CONCLUSIÓN ---
+        \draw[decorate, decoration={brace, amplitude=10pt, mirror}, thick] (0, 0) -- (6, 0) 
+            node[midway, below=12pt, align=center] {
+                Hemos metido \textbf{6} piezas.\\
+                Por tanto: $\frac{3}{4} \div \frac{1}{8} = 6$
+            };
+            
+    \end{tikzpicture}
+    \end{figure}
+
+    \textbf{Ejemplo General:} Para $\frac{2}{3} \div \frac{5}{7}$, aplicamos la regla:
+    \[ \frac{2}{3} \div \frac{5}{7} = \frac{2}{3} \cdot \frac{7}{5} = \frac{14}{15} \]
+
+    \textbf{Método 2: Ley de la Oreja (Producto de extremos y medios).} Se organiza la división como una "fracción de fracciones". El resultado es el producto de los extremos (los números de más arriba y más abajo) sobre el producto de los medios (los números internos).
+    %==========================================================
+        \begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}
+       \node (A) at (0,1.2) {$a$};
+       \node (B) at (0,0.6) {$b$};
+       \draw (A.south west) -- (A.south east); 
+       
+       \node (C) at (0,-0.6) {$c$};
+       \node (D) at (0,-1.2) {$d$};
+       \draw (C.south west) -- (C.south east); 
+       
+       \draw[thick] (-0.5,0) -- (0.5,0); 
+       
+       % CAMBIO CLAVE AQUÍ:
+       % 'pos=0.1' pone el texto arriba (al inicio de la curva roja)
+       \draw[red, ->] (A.east) to[bend left=80] node[pos=0.3, right] {Extremos ($a \cdot d$)} (D.east);
+       
+       % 'pos=0.9' pone el texto abajo (al final de la curva azul)
+       \draw[blue, ->] (B.east) to[bend left=80] node[pos=0.9, right] {Medios ($b \cdot c$)} (C.east);
+       
+       \node at (5,0) {$= \dfrac{a \cdot d}{b \cdot c}$};
+    \end{tikzpicture}
+    \caption{Ley de la Oreja}\label{fig:leyoreja}
+    \end{figure}
+
+
+    %==========================================================    
+    \textbf{Ejemplo:} $\dfrac{\frac{1}{2}}{\frac{3}{5}} = \frac{1 \cdot 5}{2 \cdot 3} = \frac{5}{6}$.
+    
+\end{enumerate}
+
+% --- INICIO BLOQUE FINAL ---
+
+\subsection*{Ejemplos Resueltos Adicionales (Racionales)}
+
+\begin{ejemplo}
+    Simplifique la fracción $\frac{84}{126}$ hasta su mínima expresión.
+    
+    \textbf{Solución:}
+    Descomponemos numerador y denominador:
+    $84 = 2^2 \cdot 3 \cdot 7$ y $126 = 2 \cdot 3^2 \cdot 7$.
+    \[ \frac{84}{126} = \frac{2^2 \cdot 3 \cdot 7}{2 \cdot 3^2 \cdot 7} = \frac{2}{3} \]
+\end{ejemplo}
+
+\begin{ejemplo}
+    Convierta el decimal periódico $0.333\dots$ a fracción.
+    
+    \textbf{Solución:}
+    Sea $x = 0.333\dots$. Multiplicamos por 10: $10x = 3.333\dots$.
+    Restamos $x$:
+    \[ 10x - x = 3.333\dots - 0.333\dots \implies 9x = 3 \implies x = \frac{3}{9} = \frac{1}{3} \]
+\end{ejemplo}
+
+\subsection*{Ejercicios Propuestos (Racionales)}
+
+\begin{enumerate}
+    \item \textbf{Operaciones Combinadas:} Realice las operaciones respetando la jerarquía (paréntesis primero, luego multiplicaciones/divisiones, finalmente sumas/restas). Simplifique al máximo.
+    \begin{enumerate}
+        \item $\left( \frac{3}{4} - \frac{1}{2} \right) \cdot \frac{8}{5}$
+        \item $\frac{2}{3} \div \left( \frac{1}{6} + \frac{5}{12} \right)$
+        \item $\frac{5}{2} - \frac{2}{3} \cdot \frac{9}{4} + \frac{1}{2}$
+    \end{enumerate}
+    
+    \item \textbf{Fracciones Complejas:} Utilice la ley de la oreja y simplificación para reducir las siguientes expresiones a una sola fracción $\frac{a}{b}$.
+    \begin{enumerate}
+        \item $\dfrac{\frac{2}{3} + \frac{1}{2}}{\frac{5}{6}}$
+        \item $\dfrac{1 - \frac{1}{3}}{1 + \frac{1}{3}}$
+    \end{enumerate}
+
+    \item \textbf{Análisis de ``El resto del resto'' (Importante):} 
+    Un estudiante gasta $\frac{1}{3}$ de su beca en libros. De lo que le sobra (el resto), gasta $\frac{2}{5}$ en transporte. Finalmente, ahorra lo que queda.
+    \begin{enumerate}
+        \item ¿Qué fracción del total de la beca gastó en transporte? (Cuidado: no es $2/5$ del total, es $2/5$ del resto).
+        \item ¿Qué fracción del total representa el dinero que ahorró?
+    \end{enumerate}
+
+    \item \textbf{Problema Inverso (Hallar el total):}
+    En un tanque de agua, se consumen primero las $\frac{2}{7}$ partes y luego se consumen $\frac{3}{7}$ partes. Si al final quedan 20 litros en el tanque:
+    \begin{enumerate}
+        \item ¿Qué fracción del tanque representa los 20 litros sobrantes?
+        \item ¿Cuál es la capacidad total del tanque en litros?
+    \end{enumerate}
+
+    \item \textbf{Comparación y Orden:}
+    Ordene los siguientes números racionales de menor a mayor. Se sugiere convertirlos todos a decimal o todos a un mismo denominador común para comparar.
+    \[ \frac{4}{5}, \quad \frac{7}{9}, \quad 0.75, \quad \frac{13}{15} \]
+
+    \item \textbf{Reto de Lógica:} 
+    Si $\frac{a}{b} = \frac{2}{3}$ y $\frac{b}{c} = \frac{4}{5}$, calcule el valor de la fracción $\frac{a}{c}$.
+\end{enumerate}
+
+\newpage % Salto de página recomendado para iniciar tema nuevo
+
+\section{Números Irracionales y el Conjunto de los Reales \texorpdfstring{$\mathbb{R}$}{R}}
 
 Todas las ecuaciones de la forma $bx=a$, con $a,b\in\mathbb{Z}$, $b\neq 0$, tienen solución en $\mathbb{Q}$. Sin embargo, si la ecuación involucra términos cuadráticos en la incógnita no siempre ocurre eso. Por ejemplo, cuando se va a resolver esta otra ecuación $x^2-2=0$, se encuentra que no hay ningún número racional que la solucione. Es necesario despejar para obtener $x=\pm\sqrt{2}$, cuyo desarrollo decimal es infinito \textbf{NO} periódico: $\sqrt{2}=1.414213562373095\dots$. 
 
@@ -594,7 +1209,7 @@ Aunque con los reales se resuelven diversas ecuaciones y análisis matemáticos,
 
 En general, en el conjunto de los números complejos todas las ecuaciones algebraicas tienen solución (Teorema Fundamental del Álgebra) y sus propiedades permiten estudiar ecuaciones diferenciales de arbitraria complejidad. Sin embargo, en este libro trabajaremos principalmente con el conjunto de los números reales, junto con sus operaciones de suma y producto, las cuales se utilizan para resolver ecuaciones algebraicas y diferenciales básicas, lo que dará los fundamentos para lo que se conoce como el \textit{Cuerpo de los Números Reales}.
 
-\section{Propiedades de los Números Reales $\mathbb{R}$}
+\section{Propiedades de los Números Reales \texorpdfstring{$\mathbb{R}$}{R}}
 
 En los números reales se definen dos operaciones, suma ($+$) y producto ($*$)\footnote{Solo en esta sección utilizaremos $*$; en el resto del libro, donde sea claro, se utilizará un punto o yuxtaposición para denotar el producto.}. Para cada una de ellas se cumplen las siguientes propiedades fundamentales.
 
@@ -638,60 +1253,108 @@ Para resolver ecuaciones, usamos las siguientes propiedades de la igualdad. Sean
     \item \textbf{Uniformidad del Producto (I2):} $a=b \iff a*c = b*c$, para todo $c \neq 0$.
     \item \textbf{Potenciación (I3):} Si $a=b$, entonces $a^n = b^n$ (para $n$ entero positivo).
 \end{enumerate}
+\section{Ejemplos Resueltos (Números Reales)}
 
-\section{Ejemplos Resueltos}
+En esta sección abordaremos no solo la clasificación de números, sino la resolución de ecuaciones aplicando estrictamente las propiedades de cuerpo, y analizaremos casos donde la intuición puede fallar.
 
 \begin{ejemplo}
-    Identifique a qué conjunto numérico pertenece cada número: $-5$, $2/3$, $\sqrt{7}$, $0$, $\pi$.
+    \textbf{Clasificación Numérica:} Determine a qué conjuntos numéricos ($\mathbb{N}, \mathbb{Z}, \mathbb{Q}, \mathbb{I}, \mathbb{R}$) pertenecen los siguientes números.
     
     \textbf{Solución:}
     \begin{itemize}
-        \item $-5$: Entero ($\mathbb{Z}$), Racional ($\mathbb{Q}$), Real ($\mathbb{R}$).
-        \item $2/3$: Racional ($\mathbb{Q}$), Real ($\mathbb{R}$).
-        \item $\sqrt{7}$: Irracional ($\mathbb{I}$), Real ($\mathbb{R}$).
-        \item $0$: Entero ($\mathbb{Z}$), Racional ($\mathbb{Q}$), Real ($\mathbb{R}$).
-        \item $\pi$: Irracional ($\mathbb{I}$), Real ($\mathbb{R}$).
+        \item $-5$: Es negativo y entero. Pertenece a $\mathbb{Z}, \mathbb{Q}, \mathbb{R}$.
+        \item $\frac{10}{2}$: Aunque parece fracción, es igual a $5$. Pertenece a $\mathbb{N}, \mathbb{Z}, \mathbb{Q}, \mathbb{R}$.
+        \item $3.1416$: Es un decimal finito. Pertenece a $\mathbb{Q}, \mathbb{R}$. (¡Ojo! No es $\pi$).
+        \item $\sqrt{7}$: Su decimal es infinito no periódico. Pertenece a $\mathbb{I}, \mathbb{R}$.
+        \item $\frac{0}{5}$: Es igual a $0$. Pertenece a $\mathbb{Z}, \mathbb{Q}, \mathbb{R}$.
+        \item $\frac{5}{0}$: \textbf{No definido}. No pertenece a ningún conjunto numérico.
     \end{itemize}
 \end{ejemplo}
 
 \begin{ejemplo}
-    Use las propiedades de los reales para despejar $x$ en la ecuación: $3(x+2) - 5 = 10$.
+    \textbf{Ecuación Racional Básica:} Resuelva la ecuación $\frac{x}{3} + \frac{x}{2} = 5$ utilizando el Mínimo Común Múltiplo.
     
     \textbf{Solución:}
+    El $\mathcal{MCM}(3,2) = 6$. Multiplicamos toda la ecuación por $6$ (Propiedad Uniforme) para eliminar denominadores:
     \begin{align*}
-        3(x+2) - 5 &= 10 & \text{(Ecuación original)} \\
-        3x + 6 - 5 &= 10 & \text{(Propiedad Distributiva)} \\
-        3x + 1 &= 10 & \text{(Suma de enteros)} \\
-        3x + 1 + (-1) &= 10 + (-1) & \text{(Propiedad Uniforme Suma)} \\
-        3x &= 9 & \text{(Propiedad Invertiva Suma)} \\
-        3x \cdot \frac{1}{3} &= 9 \cdot \frac{1}{3} & \text{(Propiedad Uniforme Producto)} \\
-        x &= 3 & \text{(Propiedad Invertiva Producto)}
+        6 \cdot \left( \frac{x}{3} + \frac{x}{2} \right) &= 6 \cdot 5 \\
+        \frac{6x}{3} + \frac{6x}{2} &= 30 & \text{(Propiedad Distributiva)} \\
+        2x + 3x &= 30 & \text{(Simplificación)} \\
+        5x &= 30 \\
+        x &= \frac{30}{5} = 6
     \end{align*}
+    Comprobación: $\frac{6}{3} + \frac{6}{2} = 2 + 3 = 5$. Es correcto.
 \end{ejemplo}
 
-\section{Ejercicios Propuestos}
+\begin{ejemplo}
+    \textbf{Análisis de Error (Falacia Matemática):} Encuentre el error en la siguiente demostración que concluye que $1=2$.
+    
+    Supongamos que $a = b$.
+    \begin{enumerate}
+        \item Multiplicamos por $a$: \quad $a^2 = ab$
+        \item Restamos $b^2$: \quad $a^2 - b^2 = ab - b^2$
+        \item Factorizamos: \quad $(a-b)(a+b) = b(a-b)$
+        \item Dividimos por $(a-b)$: \quad $a+b = b$
+        \item Como $a=b$, sustituimos: \quad $b+b = b \implies 2b = b$
+        \item Dividimos por $b$: \quad $2 = 1$ \quad (¡Absurdo!)
+    \end{enumerate}
+    
+    \textbf{Solución:}
+    El error está en el \textbf{Paso 4}. Al dividir ambos lados por $(a-b)$, estamos cometiendo una violación de las propiedades de los reales.
+    Como partimos de la premisa $a=b$, entonces $a-b=0$.
+    \textbf{No existe la división por cero}. Cualquier operación que implique dividir por cero invalida la igualdad.
+\end{ejemplo}
+
+\begin{ejemplo}
+    \textbf{Ecuaciones sin Solución Real:} Intente resolver $x^2 + 4 = 0$ en el conjunto de los Reales.
+    
+    \textbf{Solución:}
+    Despejamos $x^2$:
+    \[ x^2 = -4 \]
+    Buscamos un número real que multiplicado por sí mismo dé negativo.
+    \begin{itemize}
+        \item Si $x$ es positivo ($+$), $x \cdot x = (+)$.
+        \item Si $x$ es negativo ($-$), $x \cdot x = (+)$.
+    \end{itemize}
+    No existe ningún número real cuyo cuadrado sea negativo. Por tanto, esta ecuación \textbf{no tiene solución en $\mathbb{R}$}. (Su solución requiere los Números Imaginarios, que veremos más adelante).
+\end{ejemplo}
+
+\section{Ejercicios Propuestos (Números Reales)}
 
 \begin{enumerate}
-    \item Clasifique los siguientes números en Racionales ($\mathbb{Q}$) o Irracionales ($\mathbb{I}$):
+    \item \textbf{Clasificación Profunda:} Marque con una X los conjuntos a los que pertenece cada número.
+    \begin{center}
+    \begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+    Número & $\mathbb{N}$ & $\mathbb{Z}$ & $\mathbb{Q}$ & $\mathbb{I}$ & $\mathbb{R}$ \\ \hline
+    $-7$ & & X & X & & X \\ \hline
+    $\sqrt{9}$ & & & & & \\ \hline
+    $1.333\dots$ & & & & & \\ \hline
+    $\pi + 1$ & & & & & \\ \hline
+    $\sqrt[3]{-8}$ & & & & & \\ \hline
+    \end{tabular}
+    \end{center}
+
+    \item \textbf{Justificación de Propiedades:} Resuelva la ecuación $5x - 3 = 2x + 9$ paso a paso, escribiendo al frente qué propiedad de los reales justifica cada movimiento (Uniforme, Conmutativa, Invertiva, etc.).
+
+    \item \textbf{Ecuaciones Racionales:} Resuelva para $x$:
     \begin{enumerate}
-        \item $1.4142$
-        \item $\sqrt{2}$
-        \item $3.1416$
-        \item $\pi$
-        \item $0.333\dots$
-        \item $\frac{\sqrt{5}}{2}$
+        \item $\frac{3x}{4} - \frac{1}{2} = 4$
+        \item $\frac{x}{2} + \frac{x}{3} + \frac{x}{4} = 13$ (Sugerencia: use el MCM de 2, 3 y 4).
     \end{enumerate}
 
-    \item Justifique cada paso de la solución de la ecuación $2x - 4 = 8$ nombrando la propiedad utilizada.
-
-    \item ¿Es cierto que la suma de dos números irracionales es siempre irracional? (Sugerencia: Pruebe sumar $\sqrt{2}$ con $-\sqrt{2}$).
-
-    \item Encuentre el inverso multiplicativo de los siguientes números:
+    \item \textbf{Análisis Conceptual (Verdadero o Falso):} Justifique su respuesta con un contraejemplo si es falso.
     \begin{enumerate}
-        \item $5$
-        \item $-3/4$
-        \item $0.5$
-        \item $\pi$
+        \item La suma de dos números irracionales siempre es irracional. (Sugerencia: $\sqrt{2} + (-\sqrt{2})$).
+        \item El producto de dos números racionales siempre es racional.
+        \item El cociente de dos números enteros siempre es un entero.
+        \item Si $a \cdot b = 0$, entonces obligatoriamente $a=0$ o $b=0$.
     \end{enumerate}
+
+    \item \textbf{Reto de Análisis:} Encuentre el valor de $x$ en la ecuación $\frac{5}{x-2} = 0$.
+    \begin{itemize}
+        \item Intente despejar pasando el denominador a multiplicar.
+        \item ¿Llega a una contradicción como $5=0$?
+        \item ¿Qué concluye sobre la existencia de solución para esta ecuación?
+    \end{itemize}
 \end{enumerate}
-
