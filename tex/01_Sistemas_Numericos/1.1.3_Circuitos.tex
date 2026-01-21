@@ -1,74 +1,85 @@
-En esta sección se verá la conexión entre la lógica proposicional, los conjuntos y los circuitos.
+\section{Aplicaciones: Lógica y Circuitos Digitales}
 
-Para este tema utilizaremos el concepto de \textbf{circuitos lógicos}. Un circuito lógico es un sistema de operaciones que satisfacen las reglas de la lógica y representan el funcionamiento de un sistema físico real. En este contexto, se maneja la información en forma binaria, es decir, con ``1'' y ``0'', los cuales representan dos niveles de voltaje: nivel alto y nivel bajo, respectivamente.
+Existe una conexión fascinante entre la lógica proposicional, la teoría de conjuntos y la electrónica digital. Esta relación se basa en un \textbf{isomorfismo} matemático: las mismas reglas que gobiernan la verdad y la falsedad gobiernan el paso o interrupción de corriente eléctrica.
 
-La aplicación de la lógica proposicional a los circuitos se debe al \textbf{isomorfismo} que existe entre ambos; esto quiere decir que hay una igualdad de estructura matemática entre estos dos sistemas.
-
-\subsection{Proposición simple e interruptor}
-
-Veamos la primera relación. Como vimos al comienzo de este capítulo, una proposición simple puede ser verdadera (v) o falsa (f). En circuitos, podemos decir que un interruptor está \textbf{cerrado} (permite el paso de corriente, equivalente a 1) o \textbf{abierto} (interrumpe el paso, equivalente a 0). De esta manera podemos ver la siguiente relación:
-
-\begin{table}[ht]
-\caption{Relación Lógica - Circuito}\label{tabla:relacion_circuito}
-\centering
-\begin{tabular}{|c|c|c|}
-\hline
-\textbf{Lógica} & \textbf{Valor} & \textbf{Estado del Interruptor} \\ \hline
-Verdadero ($v$) & 1 & Cerrado (Pasa corriente) \\ \hline
-Falso ($f$) & 0 & Abierto (No pasa corriente) \\ \hline
-\end{tabular}
-\end{table}
-
-En este caso, nuestra proposición $p$ es el interruptor. Si la proposición es verdadera, el interruptor estará cerrado (1); mientras que si la proposición es falsa, nuestro interruptor estará abierto (0).
-
-\subsection{Conjunción y circuitos en serie}
-
-Con esta idea clara, se puede proceder a realizar el análisis con proposiciones compuestas. Suponga que se tienen dos proposiciones conectadas de la misma forma que en la conjunción ``y''. Esto equivale a un \textit{circuito en serie}.
-
-Suponga entonces que $p$ representa un interruptor y $q$ representa otro interruptor colocado seguidamente. Para que la energía circule y llegue a su destino, se requiere que **ambos** interruptores estén cerrados.
+En este contexto, la información se maneja de forma binaria:
 \begin{itemize}
-    \item Si uno está abierto y el otro cerrado, la energía no fluirá.
-    \item Si ambos están abiertos, evidentemente tampoco habrá flujo de energía.
+    \item \textbf{1 (Nivel Alto):} Equivale a \textit{Verdadero}. Interruptor cerrado (pasa corriente).
+    \item \textbf{0 (Nivel Bajo):} Equivale a \textit{Falso}. Interruptor abierto (no pasa corriente).
 \end{itemize}
 
-\begin{table}[ht]
-\caption{Conjunción (``y'', $\land$) aplicada a un circuito en serie}\label{tabla:conjuncion_circuitos}
+\subsection{Circuitos en Serie (Conjunción $p \land q$)}
+
+Imaginemos dos interruptores $p$ y $q$ colocados uno después del otro sobre un mismo cable. Para que la electricidad fluya de un extremo al otro, es obligatorio que el primero esté cerrado \textbf{Y} el segundo también. Esto corresponde exactamente a la operación lógica \textbf{AND} (Conjunción).
+
+\begin{figure}[ht]
 \centering
-\begin{tabular}{|c|c|c|}
+\begin{tikzpicture}
+    % Circuito Serie
+    \draw (0,0) to[short, o-] (1,0) 
+        -- (1.5,0.5) node[above]{$p$} -- (2,0) % Interruptor p (abierto)
+        -- (3,0) 
+        -- (3.5,0.5) node[above]{$q$} -- (4,0) % Interruptor q (abierto)
+        to[short, -o] (5,0);
+    \node at (2.5,-0.5) {Circuito en Serie ($p \land q$)};
+\end{tikzpicture}
+\caption{Representación física de $p \land q$. Si uno falla, todo falla.}\label{fig:serie}
+\end{figure}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|c|c||c|}
 \hline
-$p$ (Interruptor 1) & $q$ (Interruptor 2) & Flujo ($p \land q$) \\ \hline
-\textbf{v = 1} (Cerrado) & \textbf{v = 1} (Cerrado) & \textbf{v = 1} (Pasa corriente) \\ \hline
-v = 1 (Cerrado) & f = 0 (Abierto) & f = 0 (No pasa) \\ \hline
-f = 0 (Abierto) & v = 1 (Cerrado) & f = 0 (No pasa) \\ \hline
-f = 0 (Abierto) & f = 0 (Abierto) & f = 0 (No pasa) \\ \hline
+\textbf{Interruptor $p$} & \textbf{Interruptor $q$} & \textbf{Bombillo ($p \land q$)} \\ \hline
+1 (Cerrado) & 1 (Cerrado) & \textbf{1 (Encendido)} \\ \hline
+1 (Cerrado) & 0 (Abierto) & 0 (Apagado) \\ \hline
+0 (Abierto) & 1 (Cerrado) & 0 (Apagado) \\ \hline
+0 (Abierto) & 0 (Abierto) & 0 (Apagado) \\ \hline
 \end{tabular}
+\caption{Tabla de verdad para el circuito en serie.}
 \end{table}
 
-\subsection{Disyunción y circuitos en paralelo}
+\subsection{Circuitos en Paralelo (Disyunción $p \lor q$)}
 
-Al igual que en la conjunción, $p$ y $q$ representan interruptores, pero esta vez hablamos de un \textit{circuito en paralelo}.
+Ahora imaginemos que el cable se bifurca en dos caminos: uno pasa por el interruptor $p$ y el otro por el $q$. La electricidad llegará al otro lado si logra pasar por el camino de arriba \textbf{O} por el camino de abajo. Solo se interrumpirá el flujo si \textbf{ambos} caminos están cortados. Esto corresponde a la operación lógica \textbf{OR} (Disyunción).
 
-En esta configuración, la corriente tiene dos caminos posibles. Si ambos están cerrados, la energía circula. En caso de que uno de los dos esté abierto pero el otro cerrado, la energía también tiene por dónde circular. La única forma de que la energía \textbf{no} llegue a su destino es que ambos interruptores estén abiertos simultáneamente.
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}
+    % Circuito Paralelo
+    \draw (0,0) to[short, o-] (1,0) -- (1,1) -- (2,1);
+    \draw (2,1) -- (2.5,1.5) node[above]{$p$} -- (3,1); % Interruptor p
+    \draw (3,1) -- (4,1) -- (4,0);
+    
+    \draw (1,0) -- (1,-1) -- (2,-1);
+    \draw (2,-1) -- (2.5,-0.5) node[above]{$q$} -- (3,-1); % Interruptor q
+    \draw (3,-1) -- (4,-1) -- (4,0) to[short, -o] (5,0);
+    
+    \node at (2.5,-1.8) {Circuito en Paralelo ($p \lor q$)};
+\end{tikzpicture}
+\caption{Representación física de $p \lor q$. Basta un camino activo.}\label{fig:paralelo}
+\end{figure}
 
 \begin{table}[ht]
-\caption{Disyunción (``o'', $\lor$) aplicada a un circuito en paralelo}\label{tabla:disyuncion_circuitos}
 \centering
-\begin{tabular}{|c|c|c|}
+\begin{tabular}{|c|c||c|}
 \hline
-$p$ (Camino 1) & $q$ (Camino 2) & Flujo ($p \lor q$) \\ \hline
-v = 1 & v = 1 & v = 1 (Pasa) \\ \hline
-v = 1 & f = 0 & v = 1 (Pasa) \\ \hline
-f = 0 & v = 1 & v = 1 (Pasa) \\ \hline
-\textbf{f = 0} & \textbf{f = 0} & \textbf{f = 0} (No pasa) \\ \hline
+\textbf{Interruptor $p$} & \textbf{Interruptor $q$} & \textbf{Bombillo ($p \lor q$)} \\ \hline
+1 & 1 & \textbf{1 (Encendido)} \\ \hline
+1 & 0 & \textbf{1 (Encendido)} \\ \hline
+0 & 1 & \textbf{1 (Encendido)} \\ \hline
+0 & 0 & \textbf{0 (Apagado)} \\ \hline
 \end{tabular}
+\caption{Tabla de verdad para el circuito en paralelo.}
 \end{table}
 
-\subsection{Negación}
+\subsection{Compuertas Lógicas}
 
-La negación ($\lnot p$) en circuitos lógicos corresponde a un inversor o a un interruptor ``normalmente cerrado''. Esto significa que su funcionamiento es inverso al habitual:
+En la electrónica moderna, estos interruptores se miniaturizan en componentes llamados \textbf{Compuertas Lógicas}. 
 \begin{itemize}
-    \item Si la proposición es verdadera ($1$, señal activa), el interruptor se abre ($0$), cortando el paso de corriente.
-    \item Si la proposición es falsa ($0$, sin señal), el interruptor permanece cerrado ($1$), permitiendo el paso de corriente.
+    \item La \textbf{Negación ($\neg p$)} se implementa con una compuerta NOT (Inversor): si entra voltaje (1), sale tierra (0) y viceversa.
+    \item La serie se convierte en una compuerta \textbf{AND}.
+    \item El paralelo se convierte en una compuerta \textbf{OR}.
 \end{itemize}
 
-Esta operación es la base de la compuerta lógica NOT.
+Esta abstracción permite construir los procesadores de las computadoras actuales, que son esencialmente millones de proposiciones lógicas conectadas entre sí.

@@ -1,8 +1,10 @@
-En la ingeniería moderna, la teoría de conjuntos y la lógica proposicional no se resuelven solo con lápiz y papel. Los lenguajes de programación, como Python, integran estos conceptos en su núcleo. En esta sección aprenderemos a usar Python para operar conjuntos y evaluar proposiciones lógicas.
+\section{Pensamiento Computacional: Lógica y Conjuntos en Python}
+
+En la ingeniería y ciencia de datos moderna, la teoría de conjuntos y la lógica proposicional no se resuelven solo con lápiz y papel. Los lenguajes de programación, como \textbf{Python}, integran estos conceptos en su núcleo. En esta sección aprenderemos a utilizar la potencia computacional para operar conjuntos masivos y evaluar proposiciones lógicas complejas.
 
 \subsection{Lógica Proposicional en Python}
 
-Python utiliza el tipo de dato \texttt{bool} para manejar valores de verdad: \texttt{True} (Verdadero) y \texttt{False} (Falso). Los conectores lógicos que hemos estudiado tienen su equivalente directo en palabras reservadas del lenguaje.
+Python utiliza el tipo de dato nativo \texttt{bool} para manejar valores de verdad: \texttt{True} (Verdadero) y \texttt{False} (Falso). Los conectores lógicos que hemos estudiado tienen su equivalente directo en palabras reservadas del lenguaje, lo que hace el código muy legible.
 
 \begin{table}[ht]
 \caption{Equivalencia Lógica - Python}\label{tabla:python_logic}
@@ -18,39 +20,40 @@ Implicación & $p \Rightarrow q$ & \texttt{not p or q} & (No tiene operador nati
 \end{tabular}
 \end{table}
 
-\noindent \textbf{Ejemplo 1: Evaluación de una Tautología}
-Queremos comprobar si la expresión $(p \land q) \Rightarrow p$ es siempre verdadera.
+\noindent \textbf{Ejemplo 1: Evaluación de una Tautología} \\
+Queremos comprobar computacionalmente si la expresión lógica $(p \land q) \Rightarrow p$ es siempre verdadera (una tautología).
 
-\begin{lstlisting}[caption=Comprobación de Tautología]
-# Definimos una funcion para la implicacion
+\begin{lstlisting}[language=Python, caption=Script de comprobación de Tautología]
+# Definimos una funcion auxiliar para la implicacion
 def implicacion(p, q):
-    return not p or q
+    return (not p) or q
 
-print("p \t q \t Resultado")
+print(f"{'p':<8} {'q':<8} {'Resultado'}")
 print("-" * 25)
 
-# Iteramos sobre todos los valores posibles (Tabla de Verdad)
-for p in [True, False]:
-    for q in [True, False]:
+# Generamos la Tabla de Verdad iterando valores
+valores = [True, False]
+for p in valores:
+    for q in valores:
         antecedente = p and q
         resultado = implicacion(antecedente, p)
-        print(f"{p} \t {q} \t {resultado}")
+        print(f"{str(p):<8} {str(q):<8} {resultado}")
 \end{lstlisting}
 
 \noindent \textit{Salida del programa:}
 \begin{lstlisting}[language=bash, numbers=none, frame=none, backgroundcolor=\color{white}]
-p 	     q 	     Resultado
+p        q       Resultado
 -------------------------
-True 	 True 	 True
-True 	 False 	 True
-False 	 True 	 True
-False 	 False 	 True
+True     True    True
+True     False   True
+False    True    True
+False    False   True
 \end{lstlisting}
-Como vemos, el resultado es siempre \texttt{True}, confirmando que es una tautología.
+Al obtener \texttt{True} en todas las filas, confirmamos computacionalmente que es una tautología.
 
 \subsection{Teoría de Conjuntos en Python}
 
-Python tiene una estructura de datos nativa llamada \texttt{set} (conjunto), que cumple todas las propiedades matemáticas: no tiene elementos repetidos y no tiene orden.
+Python posee una estructura de datos poderosa llamada \texttt{set} (conjunto). Esta estructura implementa la teoría matemática rigurosa: elimina duplicados automáticamente y no posee orden (los elementos no tienen posición fija).
 
 \begin{table}[ht]
 \caption{Operaciones de Conjuntos en Python}\label{tabla:python_sets}
@@ -67,78 +70,98 @@ Subconjunto & $A \subseteq B$ & \texttt{A <= B}  o  \texttt{A.issubset(B)} \\ \h
 \end{tabular}
 \end{table}
 
-\noindent \textbf{Ejemplo 2: Operaciones básicas}
+\noindent \textbf{Ejemplo 2: Operaciones básicas} \\
 Dados $A = \{1, 2, 3, 4\}$ y $B = \{3, 4, 5, 6\}$, calcular su intersección y diferencia simétrica.
 
-\begin{lstlisting}[caption=Operaciones de Conjuntos]
+\begin{lstlisting}[language=Python, caption=Cálculo de intersección y diferencia simétrica]
 A = {1, 2, 3, 4}
 B = {3, 4, 5, 6}
 
+# Operadores abreviados
 interseccion = A & B
 dif_simetrica = A ^ B
 
-print(f"A interseccion B = {interseccion}")
-print(f"A Delta B = {dif_simetrica}")
+print(f"Interseccion: {interseccion}")
+print(f"Diferencia Simetrica: {dif_simetrica}")
 \end{lstlisting}
 
 \noindent \textit{Salida:}
 \begin{lstlisting}[language=bash, numbers=none, frame=none, backgroundcolor=\color{white}]
-A interseccion B = {3, 4}
-A Delta B = {1, 2, 5, 6}
+Interseccion: {3, 4}
+Diferencia Simetrica: {1, 2, 5, 6}
 \end{lstlisting}
 
 \subsection{Ejercicios Resueltos}
 
-\textbf{Ejercicio 1: Comprobación de Leyes de De Morgan}
-Demuestre usando Python que $\lnot (p \lor q) \iff (\lnot p \land \lnot q)$.
+\textbf{Ejercicio 1: Comprobación de Leyes de De Morgan} \\
+Demuestre mediante un script que $\lnot (p \lor q) \iff (\lnot p \land \lnot q)$ para todas las combinaciones posibles.
 
 \textit{Solución:}
-\begin{lstlisting}[caption=Validación Ley de De Morgan]
+\begin{lstlisting}[language=Python, caption=Validación Ley de De Morgan]
 valores = [True, False]
 es_equivalente = True
 
 for p in valores:
     for q in valores:
-        lado_izq = not (p or q)
-        lado_der = (not p) and (not q)
+        # Lado izquierdo de la igualdad
+        LHS = not (p or q)
+        # Lado derecho de la igualdad
+        RHS = (not p) and (not q)
         
-        if lado_izq != lado_der:
+        if LHS != RHS:
             es_equivalente = False
+            print(f"Falla en p={p}, q={q}")
             break
 
 if es_equivalente:
-    print("La ley de De Morgan se cumple para todos los casos.")
+    print("La ley de De Morgan se cumple (Tautologia).")
 else:
     print("La ley no se cumple.")
 \end{lstlisting}
 
-\textbf{Ejercicio 2: Filtrado por Comprensión}
-Dado el conjunto universal $U = \{0, 1, 2, ..., 20\}$, cree un conjunto $A$ con los números pares y un conjunto $B$ con los múltiplos de 3. Encuentre $A \cap B$.
+\textbf{Ejercicio 2: Filtrado por Comprensión} \\
+Dado el conjunto universal $U = \{0, 1, 2, ..., 20\}$, construya programáticamente:
+\begin{itemize}
+    \item $A$: Conjunto de números pares.
+    \item $B$: Conjunto de múltiplos de 3.
+\end{itemize}
+Finalmente, calcule $A \cap B$.
 
 \textit{Solución:}
-\begin{lstlisting}[caption=Conjuntos por Comprensión]
-# Conjunto Universal (range crea una secuencia de 0 a 20)
+\begin{lstlisting}[language=Python, caption=Conjuntos por Comprensión (Set Comprehension)]
+# Conjunto Universal (0 al 20)
 U = set(range(21)) 
 
-# Definicion por comprension (Set Comprehension)
-# Sintaxis: {x for x in U if condicion}
+# Definicion por comprension matematica
+# Sintaxis Python: {x for x in U if condicion}
 A = {x for x in U if x % 2 == 0}
 B = {x for x in U if x % 3 == 0}
 
 resultado = A & B
-print(f"Numeros pares y multiplos de 3: {resultado}")
+print(f"Pares y multiplos de 3: {resultado}")
 \end{lstlisting}
 
 \subsection{Ejercicios Propuestos con Python}
 
-Para resolver en el computador:
+Para resolver utilizando el computador:
 
 \begin{enumerate}
-    \item \textbf{Generador de Tablas de Verdad:} Escriba un programa en Python que pida al usuario el valor de tres variables booleanas ($p, q, r$) e imprima el valor de verdad de la expresión $(p \lor q) \land (\lnot r)$.
+    \item \textbf{Generador de Tablas de Verdad:} \\
+    Escriba un programa en Python que imprima la tabla de verdad completa (8 filas) para tres variables booleanas ($p, q, r$) evaluando la expresión compleja: 
+    \[ (p \lor q) \land (\lnot r) \]
     
-    \item \textbf{Validador de Subconjuntos:} Defina dos listas de números ingresadas por teclado, conviértalas a conjuntos y determine si la primera es subconjunto de la segunda utilizando el operador \texttt{<=}.
+    \item \textbf{Validador de Inclusión:} \\
+    Escriba un script que solicite al usuario dos listas de números (separados por comas), las convierta a conjuntos y determine si el primero es subconjunto propio ($A \subset B$) del segundo.
     
-    \item \textbf{Diferencia de Listas:} Suponga que tiene una lista de estudiantes inscritos en el curso de ``Lógica'' y otra lista de estudiantes en ``Matemáticas''. Use Python para encontrar qué estudiantes están viendo ``Lógica'' pero \textbf{no} ``Matemáticas'' (Diferencia de conjuntos $L - M$).
+    \item \textbf{Diferencia de Listas (Caso Real):} \\
+    Suponga que tiene una lista de correos de estudiantes inscritos en ``Lógica'' y otra lista de ``Matemáticas''. Use Python para encontrar los correos de los estudiantes que ven ``Lógica'' pero \textbf{no} ``Matemáticas'' ($L - M$).
     
-    \item \textbf{El Problema de los 24 Libros:} Retome el Ejercicio 9 de la sección de conjuntos. Escriba un script que defina los cardinales de cada intersección y use la fórmula del Principio de Inclusión-Exclusión para calcular la unión de los tres conjuntos ($|A \cup B \cup C|$). Luego reste ese valor al total (24) para hallar cuántos libros no tratan ninguno de los temas.
+    \item \textbf{Cálculo Simbólico del Problema de los Libros:} \\
+    Retome el Ejercicio de los 24 libros. Escriba un script que defina las variables con los cardinales dados ($|A|=8, |B|=13, |A \cap B|=5, \dots$) y use la fórmula del Principio de Inclusión-Exclusión para calcular $|A \cup B \cup C|$:
+    \begin{verbatim}
+    Total = |A| + |B| + |C| 
+            - |AnB| - |AnC| - |BnC| 
+            + |AnBnC|
+    \end{verbatim}
+    Finalmente, reste este resultado al total de libros (24) para hallar la respuesta.
 \end{enumerate}
