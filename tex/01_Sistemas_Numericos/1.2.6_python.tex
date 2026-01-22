@@ -1,0 +1,203 @@
+
+En esta sección utilizaremos el lenguaje de programación \textbf{Python} para explorar los conceptos de números naturales, enteros y el algoritmo de la división. Python nos servirá como una "calculadora supervitaminada" para verificar propiedades y automatizar cálculos tediosos [web:1].
+
+\subsection{Representación de Números ($\mathbb{N}$ y $\mathbb{Z}$)}
+Matemáticamente diferenciamos entre naturales ($\mathbb{N}$) y enteros ($\mathbb{Z}$). Sin embargo, en Python ambos se representan con el mismo tipo de dato llamado \texttt{int} (integer). Una gran ventaja de Python es que puede manejar números enteros arbitrariamente grandes, limitados solo por la memoria de la computadora, a diferencia de las calculadoras estándar que suelen dar error con números muy grandes.
+
+\begin{lstlisting}[language=Python, caption=Asignación de variables]
+# Un numero natural (n = 1)
+n = 1 
+print(n)
+
+# Un numero entero negativo (z = -3)
+z = -3
+print(z)
+\end{lstlisting}
+
+\subsubsection*{Ejercicio Resuelto 1: El Sucesor}
+\textbf{Problema:} Dado $n=5$, usar Python para encontrar su sucesor ($\operatorname{sig}(n) = n+1$).
+
+\textbf{Solución en Python:}
+\begin{lstlisting}[language=Python]
+n = 5
+sucesor = n + 1
+print("El sucesor de", n, "es", sucesor)
+# Salida: El sucesor de 5 es 6
+\end{lstlisting}
+
+\subsubsection*{Ejercicio Propuesto 1}
+Define una variable \texttt{x} con el valor $10$. Escribe un código que calcule e imprima el "sucesor del sucesor" de \texttt{x} (es decir, $x+2$).
+
+\subsection{Operaciones Elementales y Lógica}
+Python respeta las leyes de los signos y la jerarquía de operaciones. Además, es fundamental distinguir entre dos símbolos parecidos:
+\begin{itemize}
+    \item \texttt{=} : Asignación (Guardar un valor en una variable).
+    \item \texttt{==} : Comparación (Preguntar "¿Es esto igual a esto?").
+\end{itemize}
+
+\subsubsection*{Ejercicio Resuelto 2: Verificación de Ecuaciones}
+\textbf{Problema:} Verificar computacionalmente si $x=2$ es la solución de la ecuación $x+3=5$.
+
+\textbf{Solución:} El programa devolverá \texttt{True} (Verdadero) o \texttt{False} (Falso).
+
+\begin{lstlisting}[language=Python]
+x = 2
+# Preguntamos: Es (x + 3) igual a 5?
+verificacion = (x + 3 == 5)
+print("Es x=2 la solucion?:", verificacion)
+# Salida: Es x=2 la solucion?: True
+\end{lstlisting}
+
+\subsubsection*{Ejercicio Propuesto 2}
+Usa Python para verificar si $x=3$ es la solución de la ecuación $x + 4 = 1$. ¿Qué resultado lógico (\texttt{True} o \texttt{False}) esperas obtener considerando que estamos en $\mathbb{Z}$?
+
+\subsection{Conjuntos de Múltiplos y Listas}
+El conjunto de múltiplos $M(k)$ se puede modelar usando \textbf{listas} y la función \texttt{range(inicio, fin, paso)}.
+Nota: En Python, el valor de "fin" nunca se incluye, por lo que debemos sumar 1 al límite deseado.
+
+\textbf{Ejemplo: Generar múltiplos de 2}\\
+Matemáticamente: $M(2) = \{2, 4, 6, 8, 10\}$. En Python:
+
+\begin{lstlisting}[language=Python]
+# Empezamos en 2, vamos hasta <12 (es decir, hasta 11), saltando de 2 en 2
+multiplos_2 = list(range(2, 12, 2))
+print("M(2) =", multiplos_2)
+# Salida: M(2) = [2, 4, 6, 8, 10]
+\end{lstlisting}
+
+\subsubsection*{Ejercicio Propuesto 3}
+Escribe un código que genere una lista con los múltiplos de $3$, desde el $3$ hasta el $15$ inclusive. (Pista: El límite superior en \texttt{range} debe ser $16$).
+
+\subsection{El Algoritmo de la División (Euclides)}
+Esta es la aplicación más directa de la teoría vista. Python tiene operadores nativos para los dos componentes del Teorema de la División: $D = c \cdot d + r$.
+\begin{itemize}
+    \item \texttt{//} : \textbf{División entera}. Calcula el cociente $c$ (la parte entera).
+    \item \texttt{\%} : \textbf{Módulo}. Calcula el residuo $r$.
+\end{itemize}
+
+\textbf{Ejemplo: Dividir 11 entre 4}
+\begin{lstlisting}[language=Python]
+D = 11  # Dividendo
+d = 4   # Divisor
+
+c = D // d  # Cociente (cuantas veces cabe completas)
+r = D % d   # Residuo (lo que sobra)
+
+print(f"Dividir {D} entre {d} da cociente {c} y residuo {r}")
+
+# Verificacion del algoritmo: D = c*d + r
+prueba = c * d + r
+print("Reconstruccion:", prueba) 
+# Salida: Reconstruccion: 11
+\end{lstlisting}
+
+\subsubsection*{Ejercicio Resuelto 4: Paridad}
+\textbf{Problema:} Determinar si un número es Par o Impar.
+\textbf{Solución:} Un número es par si al dividirlo por $2$ su residuo es $0$.
+
+\begin{lstlisting}[language=Python]
+numero = 7
+if numero % 2 == 0:
+    print(numero, "es PAR")
+else:
+    print(numero, "es IMPAR")
+\end{lstlisting}
+
+\subsubsection*{Ejercicio Propuesto 4}
+Calcula el cociente y el residuo de dividir $20$ entre $3$ utilizando Python. Luego, escribe una línea de código con una comparación (\texttt{==}) que verifique si se cumple la igualdad matemática $20 = 3 \times c + r$.
+
+\subsection*{Resumen de Operadores}
+\begin{center}
+\begin{tabular}{|c|c|l|}
+\hline
+\textbf{Símbolo} & \textbf{Python} & \textbf{Descripción} \\
+\hline
+$=$ & \texttt{=} & Asignación de valor \\
+\hline
+$=$ (pregunta) & \texttt{==} & Comparación de igualdad \\
+\hline
+$+$ & \texttt{+} & Suma \\
+\hline
+$-$ & \texttt{-} & Resta \\
+\hline
+$\times$ & \texttt{*} & Multiplicación \\
+\hline
+Cociente $\lfloor D/d \rfloor$ & \texttt{//} & División Entera \\
+\hline
+Residuo $r$ & \texttt{\%} & Módulo \\
+\hline
+\end{tabular}
+\end{center}
+
+\section{Ejercicios de Profundización: Matemáticas Computacionales}
+
+Los siguientes problemas están diseñados para mostrar el poder de la computación al resolver problemas que serían muy tediosos a mano.
+
+\subsection*{Reto 1: Automatizando a Euclides (MCD)}
+Como vimos, el algoritmo de Euclides se basa en la propiedad $\operatorname{mcd}(a, b) = \operatorname{mcd}(b, r)$. Podemos programar un ciclo \texttt{while} (mientras) que repita este paso hasta que el residuo sea cero.
+
+\begin{enumerate}
+    \item \textbf{Manual:} Use el algoritmo para hallar $\operatorname{mcd}(252, 105)$ a lápiz.
+    \item \textbf{Python:} Ejecute el siguiente código para hallar el MCD de dos números grandes, por ejemplo $123456$ y $7890$.
+\end{enumerate}
+
+\begin{lstlisting}[language=Python, caption=Algoritmo de Euclides Automatizado]
+a = 123456
+b = 7890
+
+# Mientras b (el posible residuo) no sea 0
+while b > 0:
+    r = a % b  # Calculamos el residuo
+    # Paso recursivo:
+    a = b      # El divisor pasa a ser el nuevo dividendo
+    b = r      # El residuo pasa a ser el nuevo divisor
+
+print("El MCD es:", a)
+\end{lstlisting}
+
+\subsection*{Reto 2: El Calendario Infinito (Aritmética Modular)}
+El operador módulo \texttt{\%} es la base de la aritmética del reloj y los calendarios.
+Si hoy es Lunes (0) y queremos saber qué día será dentro de $10^{50}$ días, no podemos contar uno por uno.
+
+\begin{enumerate}
+    \item \textbf{Lógica:} El día final será el residuo de dividir el total de días pasados entre 7.
+    \item \textbf{Python:} Note que $10^{50}$ es un número con 50 ceros. Las calculadoras científicas normales fallarían, pero Python lo maneja nativamente.
+\end{enumerate}
+
+\begin{lstlisting}[language=Python, caption=Calculadora de días futuros]
+dias_semana = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"]
+
+dia_actual = 0  # 0 = Lunes
+dias_a_sumar = 10**50 # 10 elevado a la 50 (Numero gigante)
+
+# La magia de la aritmetica modular:
+indice_final = (dia_actual + dias_a_sumar) % 7
+
+print(f"Dentro de 10^50 dias sera: {dias_semana[indice_final]}")
+\end{lstlisting}
+
+\subsection*{Reto 3: La Conjetura de Collatz ($3n+1$)}
+Esta famosa conjetura afirma que si tomas cualquier entero positivo $n$ y aplicas las siguientes reglas, siempre llegarás a 1:
+\begin{itemize}
+    \item Si $n$ es par $\to n/2$
+    \item Si $n$ es impar $\to 3n+1$
+\end{itemize}
+
+\textbf{Ejercicio:} El número $27$ tarda sorprendentemente 111 pasos en llegar a 1, subiendo hasta valores mayores a 9000 en el proceso. Verifíquelo con este código:
+
+\begin{lstlisting}[language=Python, caption=Simulación de Collatz]
+n = 27
+pasos = 0
+print(f"Inicio: {n}")
+
+while n != 1:
+    if n % 2 == 0:     # Si es par
+        n = n // 2
+    else:              # Si es impar
+        n = 3 * n + 1
+    
+    pasos = pasos + 1
+    print(n, end=", ") # Imprime en linea horizontal
+
+print(f"\n\nTotal de pasos para llegar a 1: {pasos}")
+\end{lstlisting}

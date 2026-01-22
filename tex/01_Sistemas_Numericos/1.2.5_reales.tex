@@ -1,0 +1,178 @@
+En los números reales se definen dos operaciones, suma ($+$) y producto ($\cdot$)\footnote{Solo en esta sección utilizaremos $\cdot$; en el resto del libro, donde sea claro, se utilizará un punto o yuxtaposición para denotar el producto.}. Para cada una de ellas se cumplen las siguientes propiedades fundamentales.
+
+\subsection*{Propiedades de la Suma}
+Sean $a,b,c \in \mathbb{R}$:
+\begin{enumerate}
+    \item \textbf{Propiedad Clausurativa (S1):} $a+b \in \mathbb{R}$. La suma de reales es real.
+    \item \textbf{Propiedad Conmutativa (S2):} $a+b = b+a$. El orden de los sumandos no altera el resultado.
+    \item \textbf{Propiedad Asociativa (S3):} $(a+b)+c = a+(b+c)$. Podemos agrupar los sumandos de distintas formas.
+    \item \textbf{Propiedad Elemento Neutro (S4):} Existe un real $0 \in \mathbb{R}$, llamado módulo de la suma, tal que para todo $a \in \mathbb{R}$:
+    \[ a+0 = 0+a = a \]
+    \item \textbf{Propiedad Invertiva (S5):} Para cada número $a \in \mathbb{R}$ existe otro número $-a \in \mathbb{R}$, llamado opuesto aditivo, tal que:
+    \[ a+(-a) = 0 \]
+\end{enumerate}
+
+\subsection*{Propiedades del Producto}
+Sean $a,b,c \in \mathbb{R}$:
+\begin{enumerate}
+    \item \textbf{Propiedad Clausurativa (P1):} $a\cdot  b \in \mathbb{R}$.
+    \item \textbf{Propiedad Conmutativa (P2):} $a\cdot  b = b\cdot a$.
+    \item \textbf{Propiedad Asociativa (P3):} $(a\cdot b)\cdot c = a\cdot(b\cdot c)$.
+    \item \textbf{Propiedad del Elemento Inverso (P4):} Existe un real $1 \in \mathbb{R}$, llamado módulo del producto, tal que para todo $a \in \mathbb{R}$:
+    \[ a\cdot 1 = 1\cdot a = a \]
+    \item \textbf{Propiedad Invertiva (P5):} Para cada número $a \in \mathbb{R}$ con $a \neq 0$, existe otro número $a^{-1}$ o $\frac{1}{a} \in \mathbb{R}$, llamado inverso multiplicativo, tal que:
+    \[ a \cdot \frac{1}{a} = 1 \]
+\end{enumerate}
+
+\subsection*{Propiedad Distributiva}
+La propiedad que conecta la suma y el producto es la distributiva del producto respecto a la suma:
+\[ a\cdot(b+c) = a\cdot b + a\cdot c \]
+Esta propiedad es fundamental y se utiliza en dos direcciones:
+\begin{itemize}
+    \item \textbf{Productos Notables (Expansión):} De izquierda a derecha, distribuyendo el factor $a$.
+    \item \textbf{Factorización (Factor Común):} De derecha a izquierda, extrayendo el factor $a$: $ab+ac = a(b+c)$.
+\end{itemize}
+
+\subsection*{Propiedades de la Igualdad}
+Para resolver ecuaciones, usamos las siguientes propiedades de la igualdad. Sean $a,b,c \in \mathbb{R}$:
+\begin{enumerate}
+    \item \textbf{Uniformidad de la Suma (I1):} $a=b \iff a+c = b+c$.
+    \item \textbf{Uniformidad del Producto (I2):} $a=b \iff a\cdot c = b\cdot c$, para todo $c \neq 0$.
+    \item \textbf{Potenciación (I3):} Si $a=b$, entonces $a^n = b^n$ (para $n$ entero positivo).
+\end{enumerate}
+\section{Ejemplos de Análisis Numérico y Geométrico}
+
+\textbf{Ejemplo 1: Clasificación de conjuntos} \\
+Identifique el conjunto numérico más pequeño al que pertenece cada número y liste todos los conjuntos superiores que lo contienen (Jerarquía: $\mathbb{N} \subset \mathbb{Z} \subset \mathbb{Q} \subset \mathbb{R}$).
+
+\textit{Solución:}
+\begin{itemize}
+    \item $-5$: Pertenece a $\mathbb{Z}$. Por tanto, también está en $\mathbb{Q}$ y $\mathbb{R}$.
+    \item $0,666\dots$: Es un decimal periódico, por lo que se puede escribir como fracción ($2/3$). Pertenece a $\mathbb{Q}$ y $\mathbb{R}$.
+    \item $\sqrt{7}$: No tiene raíz exacta ni patrón periódico. Pertenece a $\mathbb{I}$ y $\mathbb{R}$.
+    \item $0$: Es el elemento neutro de la suma. Pertenece a $\mathbb{Z}$, $\mathbb{Q}$ y $\mathbb{R}$.
+    \item $\pi$: Es trascendente (no algebraico). Pertenece a $\mathbb{I}$ y $\mathbb{R}$.
+\end{itemize}
+
+\vspace{0.3cm}
+
+\textbf{Ejemplo 2: Resolución Axiomática de Ecuaciones} \\
+Use las propiedades de campo de los números reales para despejar $x$ en la ecuación: $3(x+2) - 5 = 10$, justificando cada paso formalmente.
+
+\textit{Solución:}
+\begin{align*}
+    3(x+2) - 5 &= 10 & \text{(Ecuación original)} \\
+    (3x + 6) - 5 &= 10 & \text{(Propiedad Distributiva)} \\
+    3x + (6 - 5) &= 10 & \text{(Propiedad Asociativa de la suma)} \\
+    3x + 1 &= 10 & \text{(Clausura de la suma en } \mathbb{Z}) \\
+    (3x + 1) + (-1) &= 10 + (-1) & \text{(Propiedad Uniforme: sumar inverso aditivo)} \\
+    3x + (1 + (-1)) &= 9 & \text{(Asociativa y operación aritmética)} \\
+    3x + 0 &= 9 & \text{(Propiedad del Inverso Aditivo)} \\
+    3x &= 9 & \text{(Propiedad del Módulo o Neutro)} \\
+    (3x) \cdot \frac{1}{3} &= 9 \cdot \frac{1}{3} & \text{(Propiedad Uniforme: multiplicar por inverso)} \\
+    x \cdot \left(3 \cdot \frac{1}{3}\right) &= 3 & \text{(Asociativa del producto)} \\
+    x \cdot 1 &= 3 & \text{(Propiedad del Inverso Multiplicativo)} \\
+    x &= 3 & \text{(Propiedad del Módulo o Neutro)}
+\end{align*}
+
+\vspace{0.3cm}
+
+\textbf{Ejemplo 3: Análisis Geométrico-Irracional} \\
+Se tiene un cuadrado cuya área es exactamente $5 \text{ cm}^2$.
+a) ¿Cuál es la longitud de su lado?
+b) ¿Es dicha longitud un número racional o irracional?
+c) Si colocamos tres de estos cuadrados uno al lado del otro, ¿cuál es la longitud total de la base?
+
+\textit{Solución:}
+a) Sabemos que el Área de un cuadrado es $L^2$. Por tanto, $L^2 = 5 \implies L = \sqrt{5}$.
+b) Como $5$ es un número primo, su raíz cuadrada no es exacta. Por tanto, $L = \sqrt{5}$ es un número \textbf{irracional} ($\mathbb{I}$).
+c) La base total sería la suma de tres lados: $L + L + L = 3L = 3\sqrt{5}$. Este número sigue siendo irracional (producto de un racional no nulo por un irracional).
+
+\section{Ejercicios Propuestos}
+
+\begin{enumerate}
+    \item \textbf{Distinción entre Aproximación y Valor Exacto:}
+    Clasifique rigurosamente los siguientes números en Racionales ($\mathbb{Q}$) o Irracionales ($\mathbb{I}$), justificando por qué $1,4142$ no es lo mismo que $\sqrt{2}$.
+    \begin{enumerate}
+        \item $1,4142$
+        \item $\sqrt{2}$
+        \item $3,1416$
+        \item $\pi$
+        \item $0,\overline{3}$ (es decir, $0,333\dots$)
+        \item $\frac{\sqrt{9}}{2}$
+    \end{enumerate}
+
+    \item \textbf{Justificación Axiomática:}
+    Resuelva la ecuación $\frac{1}{2}x - 4 = 8$ detallando paso a paso qué propiedad de los números reales (conmutativa, asociativa, distributiva, inverso, neutro) permite realizar cada operación.
+
+    \item \textbf{Contraejemplos en Irracionales (Análisis):}
+    Es común pensar que operar irracionales siempre da irracionales. Analice y responda:
+    \begin{enumerate}
+        \item ¿Es cierto que la suma de dos números irracionales es siempre irracional? (Pista: Sume $\sqrt{2}$ con su opuesto aditivo).
+        \item ¿Es cierto que el producto de dos irracionales es siempre irracional? (Pista: Multiplique $\sqrt{3}$ por sí mismo).
+    \end{enumerate}
+
+    \item \textbf{Densidad Numérica:}
+    Haciendo uso de expansiones decimales o promedios:
+    \begin{enumerate}
+        \item Encuentre tres números racionales que estén estrictamente entre $0$ y $1$.
+        \item Encuentre dos números irracionales que estén estrictamente entre $0$ y $1$ (Pista: Use raíces o divida números conocidos como $\pi$ o $\sqrt{2}$ por enteros grandes).
+    \end{enumerate}
+
+    \item \textbf{Geometría y Números Reales:}
+    Considere un triángulo rectángulo isósceles cuyos catetos miden $1$ unidad cada uno.
+    \begin{enumerate}
+        \item Calcule el valor exacto de la hipotenusa usando el Teorema de Pitágoras.
+        \item Clasifique el resultado en $\mathbb{Q}$ o $\mathbb{I}$.
+        \item Si construimos una ``espiral'' agregando otro cateto de longitud $1$ perpendicular a esa hipotenusa, ¿cuánto mide la nueva hipotenusa?
+    \end{enumerate}
+
+    \item \textbf{Inversos:}
+    Encuentre el inverso multiplicativo (recíproco) de los siguientes números y verifique que al multiplicarlos el resultado es $1$:
+    \begin{enumerate}
+        \item $5$
+        \item $-3/4$
+        \item $0,2$
+        \item $\frac{1}{\pi}$
+    \end{enumerate}
+\end{enumerate}
+
+\item \textbf{Análisis de Irracionalidad (Prueba por Reducción al Absurdo):}
+    Suponga que $\sqrt{2}$ es un número racional, es decir, que se puede escribir como $\frac{p}{q}$ con $p, q$ enteros primos relativos (fracción irreducible).
+    \begin{enumerate}
+        \item Eleve al cuadrado la igualdad $\sqrt{2} = \frac{p}{q}$ y despeje $p^2$.
+        \item Argumente por qué $p^2$ debe ser par, y consecuentemente, por qué $p$ también debe ser par.
+        \item Si $p$ es par, entonces $p=2k$. Sustituya esto en la ecuación y demuestre que $q$ también tendría que ser par.
+        \item ¿Por qué el hecho de que ambos sean pares contradice la hipótesis inicial de que eran "primos relativos"? ¿Qué concluye sobre la naturaleza de $\sqrt{2}$?
+    \end{enumerate}
+
+    \item \textbf{Construcción Geométrica Exacta en la Recta Real:}
+    Usted dispone de una regla (sin marcas de medida) y un compás. Se le ha dado el segmento unidad $[0,1]$ en la recta real.
+    Describa paso a paso, utilizando el Teorema de Pitágoras, cómo localizaría con exactitud geométrica el punto correspondiente al número irracional $\sqrt{5}$ en la recta numérica.
+    \textit{Pista: $\sqrt{5}$ es la hipotenusa de un triángulo rectángulo. ¿Qué longitudes deben tener los catetos para obtenerla?}
+
+    \item \textbf{El Problema del Rectángulo Áureo:}
+    Se dice que un rectángulo es "Áureo" si al cortarle un cuadrado de lado igual a su lado menor, el rectángulo remanente es semejante al original.
+    Sea $x$ el lado mayor y $1$ el lado menor.
+    \begin{enumerate}
+        \item Escriba la proporción geométrica: "Largo es a Ancho (en el grande) como Largo es a Ancho (en el pequeño)".
+        \item Esto conduce a la ecuación $\frac{x}{1} = \frac{1}{x-1}$. Resuélvala para hallar el valor exacto de $x$.
+        \item Verifique que la solución es el número irracional $\phi = \frac{1+\sqrt{5}}{2}$.
+    \end{enumerate}
+
+    \item \textbf{Desigualdades y Valor Absoluto:}
+    Analice la desigualdad $|2x - 5| < 3$ en el conjunto de los números reales.
+    \begin{enumerate}
+        \item Interprete esto geométricamente: "La distancia desde $2x$ hasta el punto $5$ es menor que $3$ unidades".
+        \item Encuentre el intervalo solución para $x$ y grafíquelo en la recta real.
+        \item ¿Existen números enteros en ese intervalo solución? ¿Cuántos?
+    \end{enumerate}
+
+    \item \textbf{Falsas Verdades (Análisis de Propiedades):}
+    Determine si las siguientes afirmaciones son Verdaderas o Falsas. Si es Falsa, proporcione un \textbf{contraejemplo} numérico concreto.
+    \begin{enumerate}
+        \item ``Si elevamos un número irracional a una potencia irracional, el resultado es siempre irracional''. (Investigue sobre el número $\sqrt{2}^{\sqrt{2}}$ y su relación con racionales, o considere el caso trivial $(\sqrt{2}^{\sqrt{2}})^{\sqrt{2}}$).
+        \item ``El cuadrado de cualquier número real es siempre mayor que el número original'' ($x^2 > x$).
+        \item ``Entre dos números racionales cualesquiera, siempre hay un número entero''.
+    \end{enumerate}
+\end{enumerate}

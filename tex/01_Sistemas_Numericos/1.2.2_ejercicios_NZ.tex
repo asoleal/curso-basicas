@@ -1,0 +1,114 @@
+\begin{enumerate}
+    % --- BLOQUE: CÁLCULO Y LÓGICA DE PRIMOS (Mecánico + Analítico) ---
+    
+    \item \textbf{Cálculo directo de $\operatorname{MCD}$ y $\operatorname{MCM}$:} 
+    Para cada par de números, encuentre su máximo común divisor y su mínimo común múltiplo utilizando diferentes formas.
+    \begin{enumerate}
+        \item $a = 450, \quad b = 360$
+        \item $a = 792, \quad b = 900$
+        \item $a = 315, \quad b = 945$
+    \end{enumerate}
+
+    \item \textbf{Ingeniería inversa con divisores :}
+    Se sabe que el número $N = 2^3 \cdot 3^x \cdot 5$ tiene exactamente 24 divisores positivos. Encuentre el valor del exponente $x$. Justifique su respuesta basándose en la fórmula del número de divisores.
+
+    \item \textbf{Lógica del $\operatorname{MCM}$ :}
+    El producto de dos números enteros es $16200$ y su máximo común divisor es $30$. ¿Cuál es su mínimo común múltiplo? 
+    \textit{Sugerencia: Utilice la relación entre el producto, el MCD y el MCM, sin necesidad de hallar los números originales.}
+
+    % --- BLOQUE: ALGORITMO DE EUCLIDES Y BÉZOUT (Mecánico + Analítico) ---
+
+    \item \textbf{Algoritmo de Euclides:}
+    Utilice el algoritmo de Euclides para encontrar el $\operatorname{MCD}(a,b)$ y exprese el resultado como una combinación lineal de la forma $d = ax + by$ (Identidad de Bézout).
+    \begin{enumerate}
+        \item $a = 123, \quad b = 277$
+        \item $a = 2024, \quad b = 76$
+    \end{enumerate}
+
+    \item \textbf{Existencia de soluciones :}
+    Sin intentar resolverla, explique razonadamente por qué la ecuación diofántica $6x + 15y = 29$ no tiene ninguna solución en el conjunto de los números enteros.
+    
+    \item \textbf{Fracciones irreducibles :}
+    Demuestre que la fracción $\frac{21n + 4}{14n + 3}$ es irreducible para cualquier número natural $n$.
+    \textit{Pista: Aplique el algoritmo de Euclides a los polinomios del numerador y denominador para hallar su MCD.}
+
+    % --- BLOQUE: DIVISIBILIDAD (Reglas + Cifras perdidas) ---
+
+    \item \textbf{Criterios de divisibilidad básicos:} 
+    Sin realizar la división larga, determine si el número $N = 123,456,789$:
+    \begin{enumerate}
+        \item Es divisible por 3.
+        \item Es divisible por 9.
+        \item Es divisible por 11.
+    \end{enumerate}
+
+    \item \textbf{Cifras perdidas :}
+    Halle los dígitos $a$ y $b$ para que el número de cinco cifras $4a31b$ sea divisible simultáneamente por $4$ y por $9$. Escriba todas las posibles soluciones.
+
+    \item \textbf{Divisibilidad y Cuadrados :}
+    Demuestre que si un número natural $n$ es un cuadrado perfecto, entonces todos los exponentes en su factorización prima deben ser números pares.
+
+    % --- BLOQUE: APLICACIONES (Problemas reales + Optimización) ---
+
+    \item \textbf{Problema de las Campanas:}
+    Tres campanas en una iglesia tocan con intervalos distintos: la primera cada 45 minutos, la segunda cada 60 minutos y la tercera cada 90 minutos. Si todas sonaron juntas a las 8:00 a.m., ¿a qué hora volverán a sonar simultáneamente?
+
+    \item \textbf{Engranajes y Vueltas :}
+    Dos ruedas dentadas de un mecanismo están engranadas. La rueda motriz tiene 24 dientes y la rueda conducida tiene 36 dientes. Si marcamos con tiza dos dientes que se tocan inicialmente, ¿cuántas vueltas completas debe dar la rueda motriz para que las marcas de tiza vuelvan a tocarse?
+
+    \item \textbf{Problema de Baldosas:}
+    Se desea cubrir el piso de una habitación rectangular de $420$ cm de largo por $480$ cm de ancho con baldosas cuadradas idénticas, sin cortar ninguna.
+    \begin{enumerate}
+        \item ¿Cuál es el mayor tamaño posible para el lado de cada baldosa?
+        \item ¿Cuántas baldosas se necesitarán en total?
+    \end{enumerate}
+
+    \item \textbf{Organización de Libros :}
+    Un bibliotecario intenta ordenar una colección de libros. Si los agrupa de 4 en 4, le sobran 2. Si los agrupa de 5 en 5, le sobran 2. Si los agrupa de 6 en 6, también le sobran 2. ¿Cuál es la menor cantidad de libros que puede tener la colección?
+    \textit{Pista: Considere el MCM y el concepto de residuo común.}
+
+    % --- BLOQUE: ECUACIONES DIOFÁNTICAS ---
+
+    \item \textbf{Ecuaciones Diofánticas Lineales:}
+    Un granjero compró vacas a \$100 cada una y ovejas a \$17 cada una. Si gastó exactamente \$1800, ¿cuántos animales de cada tipo compró?
+    \textit{Pista: Busque soluciones enteras no negativas.}
+
+    \item \textbf{El problema del franqueo :}
+    En una oficina postal ficticia solo venden estampillas (sellos) de 5 y de 7 centavos. ¿Cuál es la mayor cantidad de franqueo que es \textbf{imposible} formar combinando estas estampillas? Justifique su respuesta analizando la ecuación $5x + 7y = C$.
+
+    % --- BLOQUE: TEORÍA Y DEMOSTRACIONES ---
+
+    \item \textbf{Propiedades del $\operatorname{MCD}$:}
+    Demuestre que si $k$ es un entero positivo y $a, b \in \mathbb{Z}$, entonces:
+    \[ \operatorname{MCD}(ka, kb) = k \cdot \operatorname{MCD}(a, b) \]
+
+    \item \textbf{Números Primos:}
+    Demuestre que si $p$ es un número primo y $p \mid ab$, entonces $p \mid a$ o $p \mid b$. 
+    \textit{Sugerencia: Use la identidad de Bézout.}
+
+    \item \textbf{Irracionalidad:}
+    Demuestre por reducción al absurdo que $\sqrt{p}$ es irracional para cualquier número primo $p$. 
+
+    \item \textbf{El Algoritmo de la División:}
+    Sea $n$ un entero impar. Demuestre algebraicamente que $n^2 - 1$ es siempre divisible por 8.
+    \textit{Pista: Un impar se escribe como $2k+1$. Analice $k$ par e impar.}
+
+    \item \textbf{Primos y Cuadrados :}
+    Demuestre que si $p$ y $q$ son números primos mayores que 3, entonces el número $p^2 - q^2$ es siempre divisible por 24.
+
+    % --- BLOQUE: RETOS ---
+
+    \item \textbf{Primos de la forma $4k+3$:}
+    Demuestre que existen infinitos números primos de la forma $4n+3$.
+
+    \item \textbf{Sucesión de Fibonacci y $\operatorname{MCD}$:}
+    Sea $F_n$ la sucesión de Fibonacci definida por $F_0=0, F_1=1, F_{n}=F_{n-1}+F_{n-2}$.
+    Calcule $\operatorname{MCD}(F_{n}, F_{n+1})$ para cualquier $n \ge 1$.
+
+    \item \textbf{Algoritmo en Pseudocódigo:}
+    Escriba un algoritmo (en pseudocódigo o diagrama de flujo) que reciba un número entero $N$ e imprima su descomposición en factores primos.
+    \begin{itemize}
+        \item Entrada: $60$
+        \item Salida: $2, 2, 3, 5$
+    \end{itemize}
+\end{enumerate}
